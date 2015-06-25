@@ -20,12 +20,18 @@
 	<input type="text" name="middleName"><br>
 	<span>*</span> Last: <br>
 	<input type="text" placeholder="Appleseed" name="lastName"><br>
+	<span>*</span> Username:<br>
+	<input type="text" placeholder="jappleseed2" name="username"><br>
+	<span>*</span> Password:<br>
+	<input type="password" name="password"><br>
+	<span>*</span> Confirm Password:<br>
+	<input type="password" name="passwordConfirmed"><br>
 	<span>*</span> UIUC email:<br>
 	<input type="text" placeholder="appleseed2@illinois.edu" name="email"><br>
 	<span>*</span> Confirm email:<br>
 	<input type="text" name="emailConfirmed"><br>
 	<span>*</span> Select College:<br>
-	<select>
+	<select name="college">
 		<option value="agriculture">College of Agricultural, Consumer and Environment Sciences</option>
 		<option value="health">Applied Health Sciences</option>
 		<option value="business">Business</option>
@@ -42,7 +48,7 @@
 		<option value="medicine">Carle-Illinois College of Medicine</option>
 		<option value="social">School of Social Work</option>
 		<option value="veterinary">College of Veterinary Medicine</option>
-	<select><br>
+	</select><br>
 	<span>*</span> Select Major:
 	<select>
 	</select><br>
@@ -50,9 +56,9 @@
 	<select>
 	</select><br>
 	Cell Phone:
-	<input type="text" placeholder="(123) 456-7890"><br>
+	<input type="text" placeholder="(123) 456-7890" name=phoneNumber><br>
 	Profile Picture:<br>
-	<input type="file">
+	<input type="file" name="image">
 	<br>
 	<input type="submit" value="submit">
 </div>
