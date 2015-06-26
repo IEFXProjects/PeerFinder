@@ -1,0 +1,19 @@
+html {
+	background: url("Pictures/Paper_Background.jpg") no-repeat center center;
+	background-size: cover;
+	height: 110%;
+	margin: 25px;
+	}
+*	{
+	text-align: center;
+}
+#createdby {
+	font-size: 2.5em;
+	}
+#PeerPhinder {
+	font-size: 3em;
+	font-family: Boulder, Impact, sarif;
+	}
+.names {
+	font-size: 1.9em;
+}

@@ -1,0 +1,18 @@
+html {
+	background: url("Pictures/Paper_Background.jpg") no-repeat center center;
+	background-size: cover;
+	height: 110%;
+	margin: 25px;
+	}
+* {
+	text-align:center;
+	
+}
+div {
+	display: inline-block;
+	text-align: right;
+	}
+#login {
+	margin-top: 10em;
+	font-size: 2em;
+	}
