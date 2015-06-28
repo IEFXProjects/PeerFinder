@@ -1,0 +1,13 @@
+html {
+	background: url("Pictures/Paper_Background.jpg") no-repeat center center;
+	background-size: cover;
+	height: 110%;
+	margin: 25px;
+}
+* {
+	text-align: center;
+	display: inline-block;
+}
+#peerphinder {
+	font-size: 3em;
+	}
