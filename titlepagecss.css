@@ -27,15 +27,12 @@ html {
 	padding-top: 0px;
 	font-size: 2.5em;
 	margin-left: 5px;
+	color: red;
 }
 .users {
 	display: inline-block;
 }
-#hate:hover {
-	text decoration: none;
-	background: red;
-	}
-#hate:visited {
+#hate {
 	text-decoration: none;
 }
 * {
@@ -48,6 +45,11 @@ html {
 }
 li {
 	text-align: left;
+}
+#Easteregg {
+	float: left;
+	position: absolute;
+	opacity: 0;
 }
 .B2header {
 	text-align: center;

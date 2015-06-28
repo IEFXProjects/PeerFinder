@@ -13,6 +13,12 @@ div {
 	text-align: right;
 	}
 #login {
-	margin-top: 10em;
+	margin-top: 0em;
 	font-size: 2em;
+	}
+#PeerPhinder {
+	font-size: 3em;
+	font-famliy: Boulder, Impact, Sarif;
+	margin-bottom: 0em;
+	margin-top: 5em;
 	}
