@@ -38,13 +38,13 @@ html {
 }
 #Mycourses {
 	background-color: #FF0033;
+	font-family: Boulder;
 	}
 #Peers {
 	background-color: yellow;
 }
 #Myprofile {
 	background-color: #00CCFF;
-	font-family: Boulder;
 }
 #aboutus {
 	background-color: #FF66FF;
