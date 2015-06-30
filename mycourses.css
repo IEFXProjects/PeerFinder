@@ -7,6 +7,8 @@ html {
 .header {
 	margin-bottom: 2em;
 }
+.orange{background-color:#FF6600;}
+.blue{background-color: #0033FF}
 #photo {
 	float: left;
 	padding: 2em;
@@ -36,8 +38,8 @@ html {
 #largtab {
 	float: left;
 }
-#Mycourses {
-	background-color: #FF0033;
+/*#Mycourses {
+	background-color: #FF6600;
 	font-family: Boulder;
 	}
 #Peers {
@@ -54,4 +56,4 @@ html {
 }
 #search {
 	background-color: #FF6633;
-}
+}*/
