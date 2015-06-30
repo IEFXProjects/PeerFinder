@@ -4,3 +4,10 @@ html {
 	height: 110%;
 	margin: 25px;
 	}
+#goback {
+	text-align: left;
+	font-size: 2em;
+	}
+#classes {
+	text-align: center;
+	}
