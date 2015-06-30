@@ -1,0 +1,15 @@
+html {
+	background: url("Pictures/Paper_Background.jpg") no-repeat center center;
+	background-size: cover;
+	height: 110%;
+	margin: 25px;
+	}
+#message {
+	text-align: center;
+	margin-top: 10em;
+	}
+.yesno {
+	display: inline-block;
+	padding: 4em;
+	font-size: 1.5em;
+}
