@@ -4,3 +4,54 @@ html {
 	height: 110%;
 	margin: 25px;
 }
+.header {
+	margin-bottom: 2em;
+}
+#photo {
+	float: left;
+	padding: 2em;
+	padding-left: 0em;
+	height: 8em;
+	padding-bottom: 0;
+	padding-top: .5em;
+}
+#PeerPhinder {
+	clear: left;
+	font-size: 2em;
+	margin-bottom: 0em;
+	}
+.tabs {
+	display: inline-block;
+	border-top: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+	border-radius: 10px;
+	padding: 5px;
+	bottom: 0;
+	margin-top: 3em;
+	text-decoration: bold;
+	color: black;
+	font-size: 1.5em;
+	}
+#largtab {
+	float: left;
+}
+#Mycourses {
+	background-color: #FF0033;
+	}
+#Peers {
+	background-color: yellow;
+}
+#Myprofile {
+	background-color: #00CCFF;
+}
+#aboutus {
+	background-color: #FF66FF;
+}
+#logout {
+	background-color: #99FF66;
+}
+#search {
+	background-color: #FF6633;
+	font-family: Boulder;
+}
