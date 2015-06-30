@@ -1,0 +1,40 @@
+html {
+	background: url("Pictures/Paper_Background.jpg") no-repeat center center;
+	background-size: cover;
+	height: 110%;
+	margin: 25px;
+}
+.header {
+	margin-bottom: 2em;
+}
+.orange{background-color:#FF6600;}
+.blue{background-color: #0033FF}
+#photo {
+	float: left;
+	padding: 2em;
+	padding-left: 0em;
+	height: 8em;
+	padding-bottom: 0;
+	padding-top: .5em;
+}
+#PeerPhinder {
+	clear: left;
+	font-size: 2em;
+	margin-bottom: 0em;
+	}
+.tabs {
+	display: inline-block;
+	border-top: 2px solid black;
+	border-left: 2px solid black;
+	border-right: 2px solid black;
+	border-radius: 10px;
+	padding: 5px;
+	bottom: 0;
+	margin-top: 3em;
+	text-decoration: bold;
+	color: black;
+	font-size: 1.5em;
+	}
+#largtab {
+	float: left;
+}
