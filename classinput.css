@@ -8,6 +8,37 @@ html {
 	text-align: left;
 	font-size: 2em;
 	}
-#classes {
+#enterdelete {
 	text-align: center;
+	}
+#entercrn {
+	display: inline-block;
+	text-align: center;
+	padding-right: 4em;
+	}
+#deletecrn {
+	display: inline-block;
+	text-align: center;
+	padding-left: 4em;
+	
+	}
+.tableh {
+	text-align: center;
+	width: 30em;
+	font-size: 3em;
+	border-bottom: 2px solid black;
+	}
+.tablel {
+	border-left: 2px solid black;
+}
+.tabler {
+	border-right: 2px solid black;
+}
+.tableb {
+	border-bottom: 1px dashed black;
+	font-size: 1.2em;
+	}
+.space {
+	display: block;
+	clear: both;
 	}
