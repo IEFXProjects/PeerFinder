@@ -4,14 +4,15 @@ html {
 	height: 110%;
 	margin: 25px;
 }
-.header {
+#header {
 	margin-bottom: 2em;
+	margin-top: 7em;
+	white-space: nowrap;
 }
 .orange{background-color:#FF6600;}
 .blue{background-color: #0033FF}
 #photo {
 	float: left;
-	padding: 2em;
 	padding-left: 0em;
 	height: 8em;
 	padding-bottom: 0;
@@ -20,7 +21,7 @@ html {
 #PeerPhinder {
 	clear: left;
 	font-size: 2em;
-	margin-bottom: 0em;
+	display: none;
 	}
 .tabs {
 	display: inline-block;
@@ -33,9 +34,12 @@ html {
 	margin-top: 3em;
 	text-decoration: bold;
 	color: black;
-	font-size: 1.5em;
+	font-size: 2em;
+	white-space: nowrap;
 	}
 #largtab {
 	float: left;
-	width: 30em;
 }
+* {
+	border: 2px dashed black;
+	}
