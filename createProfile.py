@@ -12,7 +12,7 @@ form=cgi.FieldStorage()
 #open a pathway to the users data file
 f0=open('Users.csv','r')
 #read the data from the file into a variable
-f1=f1.read()
+f1=f0.read()
 #close the file pathway to prevent corruption
 f0.close()
 #split the string of user data by line (into users)
