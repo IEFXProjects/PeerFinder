@@ -11,3 +11,10 @@
 #info {
 	text-align: center;
 	}
+#goback {
+	text-decoration: none;
+	float: left;
+	margin-top: 1em;
+	font-size: 2em;
+	text-align: center;
+	}
