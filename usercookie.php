@@ -16,7 +16,7 @@
 			echo "Log in process successful.";
 			echo "Welcome " . $info[0];
 			echo "<br><a href="Profilepage.html">Click Here to<br>Continue to<br>Profile page</a>";
-			// it echos the link to the browser as html for the user to click on
+			// it displays the link to the browser as html for the user to click on
 			//if we can find a way to do this without having the user click it would be better
 		}
 		else {
