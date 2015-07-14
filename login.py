@@ -45,6 +45,10 @@ else:
     login=checkForUser(0,users,inputUsername)
 
 if login:
+	import subprocess
+	proc = subprocess.Popen("usercookie.php", shell = True, stdout = subprocess.PIPE)
+	script_response = proc.stdout.read()
+	#if the login is correct it will link to the php file which plants the cookie on their computer preserving login status.
     #login the user. IDK how yet.
 else:
     #read in the template file and print out the error page.
