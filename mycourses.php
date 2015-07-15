@@ -9,39 +9,26 @@ if(!isset($_COOKIE['cookie'])){
 <!doctype html>
 <html>
 	<head>
-		<link type="text/css" rel="stylesheet" href="Profilepage.css"/>
+		<link type="text/css" rel="stylesheet" href="mycourses.css"/>
 		<link type="text/css" rel="stylesheet" href="tabs.css"/>
-		<title>Profilepage</title>
+		<title>mycourses</title>
 	</head>
 	<body>
 		<div id="header">
-			<h1 id="PeerPhinder">PeerPhinder</h1>
-			<img src="Pictures/PeerPhinderLogo.PNG" id="photo"/>
+				<h1 id="PeerPhinder">PeerPhinder</h1>
+				<img src="Pictures/PeerPhinderLogo.PNG" id="photo"/>
 				<div id="largetab">
-						<a href="mycourses.html"><h3 class="tabs blue" id="Mycourses">My Courses</h3></a>
-						<a href="peers.html"><h3 class="tabs orange" id="Peers">Peers</h3></a>
-						<a href="Profilepage.html"><h3 class="tabs blue" id="Myprofile">My Profile</h3></a>
+						<a href="mycourses.php"><h3 class="tabs blue" id="Mycourses">My Courses</h3></a>
+						<a href="peers.php"><h3 class="tabs orange" id="Peers">Peers</h3></a>
+						<a href="profilepage.php"><h3 class="tabs blue" id="Myprofile">My Profile</h3></a>
 						<a href="aboutus.html"><h3 class="tabs orange" id="aboutus">About Us</h3></a>
 						<a href="search.html"><h3 class="tabs blue" id="search">search</h3></a>
 						<a href="logout2.php"><h3 class="tabs orange" id="logout">logout</h3></a>
 				</div>
-
 		</div>
-		<div id="pageinfo">
-			<p id="message">This page is what other users will see when they view you</p>
-			<div id="name">
-				<p class="name">F_name</p>
-				<p class="name">M_name</p>
-				<p class="name">L_name</p>
-			</div>
-			<div id="biography">
-				<p> biography</p>
-				<p id="biotext">b_i_o</p>
-				<a href="biochange.html" id="biochange">click here to make changes to your biography</a>
-			</div>
-			<img src="Profile_pic" id="ppic"/>
-			<p id="space"></p> <!-- separates -->
-			<table>
+		<div class="main">
+			<h1 id="mycoursesmain">My Courses</h1>
+				<table>
 					<thead>
 						<tr>
 							<th class="tableh tabler">Class</th>
@@ -57,13 +44,11 @@ if(!isset($_COOKIE['cookie'])){
 						<td class="tabler tableb">time1</td>
 						<td class="tabler tableb">professor1</td>
 						<td class="tableb">location1</td>
+						<!-- if we cant get a program to automatically fill out the table for us, we will have to code a row for the maximum number of CRN codes somebody can have at one time -->
 					</tr>
 				</tbody>
-
-			
+			<a id="enterCRNS" href="classinput.php">To enter or change classes click here</a>
 			
 		</div>
 	</body>
 </html>
-			
-			

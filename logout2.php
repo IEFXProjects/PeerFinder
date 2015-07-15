@@ -13,10 +13,7 @@
 			setcookie($cookie_name, $info, time() - 3600, "/"); 
 			?> 
 			class="yesno">yes<br>log me out</a>
-			<a href="Profilepage.html" class="yesno">no<br>keep me logged in</a>
+			<a href="profilepage.php" class="yesno">no<br>keep me logged in</a>
 		</div>
 	</body>
 </html>
-<?php 
-	akjeflifj
-?>

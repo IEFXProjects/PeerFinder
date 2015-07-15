@@ -18,9 +18,9 @@ if(!isset($_COOKIE['cookie'])){
 			<h1 id="PeerPhinder">PeerPhinder</h1>
 			<img src="Pictures/PeerPhinderLogo.PNG" id="photo"/>
 				<div id="largetab">
-						<a href="mycourses.html"><h3 class="tabs blue" id="Mycourses">My Courses</h3></a>
-						<a href="peers.html"><h3 class="tabs orange" id="Peers">Peers</h3></a>
-						<a href="Profilepage.html"><h3 class="tabs blue" id="Myprofile">My Profile</h3></a>
+						<a href="mycourses.php"><h3 class="tabs blue" id="Mycourses">My Courses</h3></a>
+						<a href="peers.php"><h3 class="tabs orange" id="Peers">Peers</h3></a>
+						<a href="profilepage.php"><h3 class="tabs blue" id="Myprofile">My Profile</h3></a>
 						<a href="aboutus.html"><h3 class="tabs orange" id="aboutus">About Us</h3></a>
 						<a href="search.html"><h3 class="tabs blue" id="search">search</h3></a>
 						<a href="logout2.php"><h3 class="tabs orange" id="logout">logout</h3></a>
@@ -37,7 +37,7 @@ if(!isset($_COOKIE['cookie'])){
 			<div id="biography">
 				<p> biography</p>
 				<p id="biotext">b_i_o</p>
-				<a href="biochange.html" id="biochange">click here to make changes to your biography</a>
+				<a href="biochange.php" id="biochange">click here to make changes to your biography</a>
 			</div>
 			<img src="Profile_pic" id="ppic"/>
 			<p id="space"></p> <!-- separates -->
