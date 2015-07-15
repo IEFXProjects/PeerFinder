@@ -22,3 +22,9 @@ div {
 	margin-bottom: 0em;
 	margin-top: 5em;
 	}
+input {
+	text-align: left;
+	}
+form {
+	text-align: right;
+}
