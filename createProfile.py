@@ -42,16 +42,16 @@ minor=form["minor"].strip()#[8]
 #first check if the user name is taken
 for i in users:
     if i[0] == username:#assumes the firs element of sublist to be username
-        print "username taken"
+        print ("username taken")
 #then check if the passwords match
     elif password != form["passwordConfirmed"]:
-        print "passwords do not match"
+        print ("passwords do not match")
 #then check if the email is a Illinois email
     elif email[-13:]!='@illinois.edu':
-        print "email is not a U of I email"
+        print ("email is not a U of I email")
 #then check if the emails match
     elif email!=form["emailConfirmed"]:
-        print emails do not match
+        print ("emails do not match")
 #then if all is ok write the info to users.csv (or a similar file)
     else:
         userdata=username+','+password+','+email+','+firstName+','+middleName+','
