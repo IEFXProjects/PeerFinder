@@ -14,7 +14,7 @@
 <body>
 	<h1 id="peerphinder">PeerPhinder</h1>
 <div>
-	<form method="Post" action="/cgi-bin/createProfile.py">
+	<form  action="createProfile.php" method="post">
 	<span>*</span> First: <br>
 	<input type="text" placeholder="Johny" name="firstName"><br>
 	Middle:<br>
@@ -333,11 +333,11 @@
 
 	</select><br>
 	Cell Phone:
-	<input type="text" placeholder="(123) 456-7890" name=phoneNumber><br>
+	<input type="text" placeholder="(123) 456-7890" name="phoneNumber"><br>
 	Profile Picture:<br>
 	<input type="file" name="image">
 	<br>
-	<input type="submit" value="submit">
+	<input type="submit">
 	</form>
 </div>
 </body>
