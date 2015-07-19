@@ -51,7 +51,7 @@
 	//connects to the database based on the variables defined in the first lines
 	if ($conn->connect_error) {
      die("Connection failed: " . $conn->connect_error);
-	} 
+	}
 	
 	$username = mysqli_real_escape_string($conn, $username);
 	$email = mysqli_real_escape_string($conn, $email);
