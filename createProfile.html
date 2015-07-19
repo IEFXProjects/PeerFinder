@@ -3,36 +3,34 @@
 <head>
     <title>Create Profile</title>
 	<link type="text/css" rel="stylesheet" href="createProfile.css"/> 
-    <meta charset="utf-8" />
+	<meta charset="utf-8" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style type="text/css">
-    span{color:red}
-    </style>    
+    <style type="text/css">span{color:red}</style>  
 </head>
 
 <body>
 	<h1 id="peerphinder">PeerPhinder</h1>
 <div>
-	<form  action="createProfile.php" method="post">
+	<form  name="CreatePForm" action="https://web125.secure-secure.co.uk/peerphinder.com/createProfile.php" method="post">
 	<span>*</span> First: <br>
-	<input type="text" placeholder="Johny" name="firstName"><br>
+	<input type="text" placeholder="Johny" name="firstName" required><br>
 	Middle:<br>
 	<input type="text" name="middleName"><br>
-	<span>*</span> Last: <br>
+	Last: <br>
 	<input type="text" placeholder="Appleseed" name="lastName"><br>
 	<span>*</span> Username:<br>
-	<input type="text" placeholder="jappleseed2" name="username"><br>
+	<input type="text" placeholder="jappleseed2" name="username" required><br>
 	<span>*</span> Password:<br>
-	<input type="password" name="password"><br>
+	<input type="password" name="password" maxlength=15 minlength=7 required title="exceeds or does not meet length requirment"><h5> Must be between 7-15 characters long and not include special characters</h5><br>
 	<span>*</span> Confirm Password:<br>
-	<input type="password" name="passwordConfirmed"><br>
-	<span>*</span> UIUC email:<br>
-	<input type="text" placeholder="appleseed2@illinois.edu" name="email"><br>
+	<input type="password" name="passwordConfirmed" required><br>
+	<span>*</span>email:<br>
+	<input type="email" placeholder="appleseed2@illinois.edu" name="email" required><br>
 	<span>*</span> Confirm email:<br>
-	<input type="text" name="emailConfirmed"><br>
+	<input type="email" name="emailConfirmed" required><br>
 	<span>*</span> Select College:<br>
-	<select name="college">
+	<select name="college" required>
 		<option value="agriculture">College of Agricultural, Consumer and Environment Sciences</option>
 		<option value="health">Applied Health Sciences</option>
 		<option value="business">Business</option>
@@ -51,7 +49,7 @@
 		<option value="veterinary">College of Veterinary Medicine</option>
 	</select><br>
 	<span>*</span> Select Major:
-	<select name="major:">
+	<select name="major" required>
 		<option value=" Accountancy">Accountancy - BUS</option>
 		<option value=" Acting">Acting - FAA</option>
 		<option value=" Actuarial">Actuarial Science - LAS</option>
@@ -252,7 +250,7 @@
 		<option value="Urban ">Urban Planning - FAA</option>
 	</select><br>
 	Select Minor:
-	<select value="minor">
+	<select name="minor">
 		<option value=“none”>no minor</option>
 		<option value=“African”>African Studies-LAS</option>
 		<option value=“African2”>African-American Studies-LAS</option>
@@ -337,7 +335,7 @@
 	Profile Picture:<br>
 	<input type="file" name="image">
 	<br>
-	<input type="submit">
+	<input type="submit" name="submit" value="Submit">
 	</form>
 </div>
 </body>
