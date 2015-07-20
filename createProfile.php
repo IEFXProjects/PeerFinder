@@ -16,7 +16,7 @@
 	
 	$arrayinfo = array($username, $email, $emailConfirmed, $password, $passwordConfirmed, $firstName, $middleName, $lastName, $college, $major, $minor, $phoneNumber, $image);
 	//organizes the data into an array so that it is easier to run tests.
-	if ($array==0) {
+	if ($arrayinfo==0) {
 		die("No data submitted.  Please try again " . $conn->connect_error);
 	}
 	//if the user tries to submit a blank form it will not take it
