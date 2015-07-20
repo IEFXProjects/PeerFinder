@@ -9,12 +9,12 @@
 		<h1 id="PeerPhinder">PeerPhinder</h1>
 		<div>
 			<h2 id="login">Log In</h2>
-			<form method="Post" action="/cgi-bin/login.py">
+			<form method="Post" action="login.php">
 				<span>*</span> Username or Email:
-					<input type="text" placeholder="info@peerphinder.com" name="username"><br>
+					<input type="text" placeholder="info@peerphinder.com" name="usernameoremail" required><br>
 				<span>*</span> Password:
-					<input type="password" name="password"><br>
-				<input type="submit" value="submit">
+					<input type="password" name="lpassword" required><br>
+				<input type="submit" name="submit" value="submit">
 			</form>
 		</div>
 </html>
