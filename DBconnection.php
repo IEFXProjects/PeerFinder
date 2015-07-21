@@ -1,5 +1,4 @@
 <?php
-function connect() {
 	$servername = "localhost";
 	$DBusername = "cl29-mjgppg";
 	$DBpassword = "f4V-NrKV7";
@@ -14,5 +13,4 @@ function connect() {
 	else {
 		echo "connected";
 	}
-}
 ?>

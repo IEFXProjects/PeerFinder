@@ -3,7 +3,6 @@
 	$lpassword= $_POST[lpassword];
 	
 	include_once 'DBconnection.php';
-	connect();
 	
 	$usernameoremail= mysqli_real_escape_string($conn, $usernameoremail);
 	$lpassword= mysqli_real_escape_string($conn, $lpassword);
@@ -13,6 +12,8 @@
 		die("incorrect please try again" . $conn->connect_error);
 	}
 	else {
+		include_once "phpsessioncookie.php"
+		sec_session_start($conn);
 		header ("Location: https://web125.secure-secure.co.uk/peerphinder.com/Profilepage.html");
 		die();
 	}
