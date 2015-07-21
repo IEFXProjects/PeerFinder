@@ -40,17 +40,8 @@
 	//tests to see if the user inputed a valid email...if they did it will do nothing...if they did not it will end the script
 	//all of the if statements test to make sure the user inputed the form data correctly
 	
-	$servername = "localhost";
-	$DBusername = "cl29-mjgppg";
-	$DBpassword = "f4V-NrKV7";
-	$DBname = "cl29-mjgppg";
-	
-	
-	$conn = new mysqli($servername, $DBusername, $DBpassword, $DBname);
-	//connects to the database based on the variables defined in the first lines
-	if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
-	}
+	include_once 'DBconnection.php';
+	connect();
 	
 	$username = mysqli_real_escape_string($conn, $username);
 	$email = mysqli_real_escape_string($conn, $email);
