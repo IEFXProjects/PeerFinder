@@ -1,0 +1,43 @@
+#message {
+	text-align: center;
+}
+#ppic {
+	float: left;
+	height: 20em;
+	width: 20em;
+}
+#biography {
+	float: right;
+}
+#name {
+	font-size: 3em;
+	font-family: Cursive;
+	display: inline-block;
+	float: left;
+	}
+.name {
+	margin: 0;
+	}
+
+#biotext {
+	height: auto;
+	}
+#space {
+	display: block;
+	clear: both;}
+.tableh {
+	text-align: center;
+	width: 30em;
+	font-size: 3em;
+	border-bottom: 2px solid black;
+	}
+.tablel {
+	border-left: 2px solid black;
+}
+.tabler {
+	border-right: 2px solid black;
+}
+.tableb {
+	border-bottom: 1px dashed black;
+	font-size: 1.2em;
+	}

@@ -1,3 +1,11 @@
+<?php
+if(!isset($_COOKIE['cookie'])){
+    echo: "usercookie is not present";
+	echo: "please login";
+	header("Location: http://www.peerphinder.com"); /* Redirects browser back to index if the cookie is not present*/
+	exit();
+}
+?>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -7,7 +15,7 @@
 	<body>
 	<div id="header">
 			<h1 id="PeerPhinder">PeerPhinder</h1>
-			<img src="Pictures/PeerPhinderLogo.png" id="photo"/>
+			<img src="Pictures/PeerPhinderLogo.PNG" id="photo"/>
 				<div id="largetab">
 						<a href="mycourses.php"><h3 class="tabs blue" id="Mycourses">My Courses</h3></a>
 						<a href="peers.php"><h3 class="tabs orange" id="Peers">Peers</h3></a>

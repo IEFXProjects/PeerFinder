@@ -1,0 +1,68 @@
+html {
+	background: url("Pictures/Paper_Background.jpg") no-repeat center center;
+	background-size: cover;
+	height: 110%;
+	margin: 25px;
+	}
+#PEERPHINDER {
+	font-family: Boulder, Calibri, sarif;
+	text-align: center;	
+	font-size: 2em;
+	clear: above;
+}
+#signup {
+	color: green;
+	text-decoration: none;
+	font-size: 2.5em;
+	display: inline-block;
+	margin-top: 0em;
+	margin-right: 5px;
+}
+#login {
+	text-align: right;
+	font-size: 1.6em;
+	text-decoration: none;
+	display: inline-block;
+	margin-top: 0px;
+	padding-top: 0px;
+	font-size: 2.5em;
+	margin-left: 5px;
+	color: red;
+}
+.users {
+	display: inline-block;
+}
+#hate {
+	text-decoration: none;
+}
+* {
+	text-align: center;
+}
+.list {
+	display: inline-block;
+	text-align: center;
+	/*inline block keeps the ul and ol numbering and bullets from staying on the left margin*/
+}
+li {
+	text-align: left;
+}
+#Easteregg {
+	float: left;
+	position: absolute;
+	opacity: 0;
+}
+.B2header {
+	text-align: center;
+}
+.space {
+	clear: both;
+	/*keeps the "after which..." title from floating up too far*/
+}
+#bottom {
+    bottom: 0;
+	text-align: left;
+	width: 100%;
+}
+.bottom {
+	text-align: center}
+

@@ -1,0 +1,30 @@
+html {
+	background: url("Pictures/Paper_Background.jpg") no-repeat center center;
+	background-size: cover;
+	height: 110%;
+	margin: 25px;
+	}
+* {
+	text-align:center;
+	
+}
+div {
+	display: inline-block;
+	text-align: right;
+	}
+#login {
+	margin-top: 0em;
+	font-size: 2em;
+	}
+#PeerPhinder {
+	font-size: 3em;
+	font-famliy: Boulder, Impact, Sarif;
+	margin-bottom: 0em;
+	margin-top: 5em;
+	}
+input {
+	text-align: left;
+	}
+form {
+	text-align: right;
+}

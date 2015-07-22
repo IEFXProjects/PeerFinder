@@ -36,20 +36,10 @@
 		die("incorrect please try again" . $conn->connect_error);
 	}
 	else {
-		$UserArray = mysqli_fetch_array($DBlook, MYSQLI_ASSOC);
+	   //require_once 'phpsessioncookie.php'
 		session_name("Peerphinderlogin");
 		session_start();
-		$_SESSION["User_Name"]= $UserArray[0];
-		$_SESSION["Email"]= $UserArray[1];
-		$_SESSION["First_Name"]= $UserArray[3];
-		$_SESSION["Middle_Name"]= $UserArray[4];
-		$_SESSION["Last_Name"]= $UserArray[5];
-		$_SESSION["College"]= $UserArray[6];
-		$_SESSION["Major"]= $UserArray[7];
-		$_SESSION["Minor"]= $UserArray[8];
-		$_SESSION["Phone_Number"]= $UserArray[9];
-		$_SESSION["Profile_Picture"]= $UserArray[10];
-		
+		$_SESSION["session_USER_info"]= $DBlook;
 		session_regenerate_id(true);
 		header ("Location: https://web125.secure-secure.co.uk/peerphinder.com/Profilepage.php");
 		exit();
