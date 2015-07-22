@@ -1,13 +1,7 @@
 <?php
-if(!isset($_COOKIE['cookie'])){
-    echo: "usercookie is not present";
-	echo: "please login";
-	header("Location: http://www.peerphinder.com"); /* Redirects browser back to index if the cookie is not present*/
-	exit();
-}
+session_start();
+session_regenerate_id(true);
 ?>
-<!doctype html>
-<html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="Profilepage.css"/>
 		<link type="text/css" rel="stylesheet" href="tabs.css"/>
@@ -30,9 +24,9 @@ if(!isset($_COOKIE['cookie'])){
 		<div id="pageinfo">
 			<p id="message">This page is what other users will see when they view you</p>
 			<div id="name">
-				<p class="name">F_name</p>
-				<p class="name">M_name</p>
-				<p class="name">L_name</p>
+				<p class="name"><?php $_SESSION["session_USER_info"][3]?></p>
+				<p class="name"><?php $_SESSION["session_USER_info"][4]?></p>
+				<p class="name"><?php $_SESSION["session_USER_info"][5]?></p>
 			</div>
 			<div id="biography">
 				<p> biography</p>
@@ -64,6 +58,4 @@ if(!isset($_COOKIE['cookie'])){
 			
 		</div>
 	</body>
-</html>
-			
 			
