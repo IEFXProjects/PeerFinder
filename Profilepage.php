@@ -37,6 +37,7 @@ $Major= htmlentities($getinfo[7]);
 $Minor= htmlentities($getinfo[8]);
 $Phone_Number= htmlentities($getinfo[9]);
 $Profile_Picture= htmlentities($getinfo[10]);
+$bio= htmlentities($getinfo[11]);
 /*
 $user_name= $_SESSION["User_Name"];
 $EMail= $_SESSION["Email"];
@@ -79,11 +80,43 @@ $Profile_Picture= $_SESSION["Profile_Picture"];
 			</div>
 			<div id="biography">
 				<p> biography</p>
-				<p id="biotext">b_i_o</p>
-				<a href="biochange.php" id="biochange">click here to make changes to your biography</a>
+				<p id="biotext">$bio</p>
+				<a href="biochange.php" id="biochange">
+					<?php 
+						if (!$bio=0) {
+							echo "click here to make changes to your biography";
+						}
+						else {
+							echo "click here to add a biography!";
+						}
+					?></a>
 			</div>
-			<img src="Profile_pic" id="ppic"/>
+			<img src="$Profile_Picture" id="ppic"/>
 			<p id="space"></p> <!-- separates -->
+			
+			
+			<?php if (count($shop) > 0): ?>
+				<table>
+				  <thead>
+					<tr>
+						<th class="tableh tabler">Class</th>
+						<th class="tableh tabler">Time</th>
+						<th class="tableh tabler">Professor</th>
+						<th class="tableh">Location</th>
+					</tr>
+				  </thead>
+				  <tbody>
+			<?php foreach ($shop as $row): array_map('htmlentities', $row); ?>
+				<tr>
+				  <td class="tabler tableb"><?php echo implode('</td><td>', $row); ?></td>
+				</tr>
+			<?php endforeach; ?>
+				</tbody>
+				</table>
+			<?php endif; ?>
+			
+			
+		<!--	above code should equate to the table below but it may need some adjusting
 			<table>
 					<thead>
 						<tr>
@@ -93,7 +126,6 @@ $Profile_Picture= $_SESSION["Profile_Picture"];
 							<th class="tableh">Location</th>
 						</tr>
 					</thead>
-				
 				<tbody>
 					<tr>
 						<td class="tabler tableb">Class1</td>
@@ -102,7 +134,7 @@ $Profile_Picture= $_SESSION["Profile_Picture"];
 						<td class="tableb">location1</td>
 					</tr>
 				</tbody>
-
+		-->
 			
 			
 		</div>

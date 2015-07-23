@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<script src="texteditorfunctions.js"></script>
+		<script src="textediorfunctions.js"></script>
 		<link type="text/css" rel="stylesheet" href="tabs.css"/>
 		<title> Edit Biography </title>
 	</head>
@@ -35,13 +35,7 @@
 		  <input type="button" onClick="iImage()" value="Image">
 		</div>
 		<!-- Hide(but keep)your normal textarea and place in the iFrame replacement for it -->
-		<textarea style="display:none;" name="myTextArea" id="myTextArea" cols="100" rows="14">
-			<?php
-				if (!$bio=0) {
-					echo $bio;
-				}		
-			?>
-		</textarea>
+		<textarea style="display:none;" name="myTextArea" id="myTextArea" cols="100" rows="14"></textarea>
 		<iframe name="richTextField" id="richTextField" style="border:#000000 1px solid; width:700px; height:300px;"></iframe>
 		<!-- End replacing your normal textarea -->
 		</p>
