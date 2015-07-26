@@ -13,7 +13,7 @@ $CMinor= $_POST['CMinor'];
 
 
 
-include_once 'DBconnection.php';
+require 'DBconnection.php';
 
 $CUsername = mysqli_real_escape_string($conn, $CUsername);
 $CEmail = mysqli_real_escape_string($conn, $CEmail);
@@ -29,17 +29,8 @@ $CPhoneNumber = mysqli_real_escape_string($conn, $CPhoneNumber);
 mysqli_close($conn);
 
 
-session_name("Peerphinderlogin");
-session_start();
-if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
-    // last request was more than 10 minutes ago
-    session_unset();     // unset $_SESSION variable for the run-time 
-    session_destroy();   // destroy session data in storage
-	echo "<p>Session Timed out</p>";
-	header("Location: http://peerphinder.com");
-}
-$_SESSION['LAST_ACTIVITY']= time(); // update last activity time stamp
-require "functions.php";
+require 'functions.php';
+sessionpage();
 retrieveUserInfo();
 if ($CUsername != $user_name) {
 	$checkUsername = mysqli_query($conn, "SELECT UserName from UserInfo WHERE UserName = '$CUsername'");
@@ -95,7 +86,7 @@ if ($CEmail != $EMail) {
 	$change= $CUsername;
 }
 //compare the super global session variable to the posts above to determine which one changed.  set the column heading as a variable and change as a variable to only have one mysqli statement.  
-require "DBconnection.php";
+require 'DBconnection.php';
 $update = mysqli_query($conn, "UPDATE UserInfo SET $column= $change)
 mysqli_close($conn);
 header("Location:  https://web125.secure-secure.co.uk/peerphinder.com/bioupdate.php");

@@ -1,4 +1,8 @@
-<!doctype html>
+<?php
+require 'functions.php';
+sessionpage();
+retrieveUserInfo();
+?>
 <html>
 	<header>
 		<link type="text/css" rel="stylesheet" href="classinput.css"/>
@@ -52,12 +56,17 @@
 				
 				<tbody>
 					<tr>
-						<td class="tabler tableb">CRN1</td>
-						<td class="tabler tableb">Class1</td>
-						<td class="tabler tableb">time1</td>
-						<td class="tabler tableb">professor1</td>
-						<td class="tableb">location1</td>
-						<!-- if we cant get a program to automatically fill out the table for us, we will have to code a row for the maximum number of CRN codes somebody can have at one time -->
+						<?php
+							$numclasses= count($classes);
+							$count=0;
+							while ($count< $numclasses) {
+							echo "<td class="tabler tableb"><?php 
+															echo "$CLasses[$count];"
+														?>
+							</td>"
+							$count= $count+1;
+							}
+						?>
 					</tr>
 				</tbody>			
 		</div>		

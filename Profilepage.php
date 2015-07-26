@@ -1,56 +1,7 @@
 <?php
-session_name("Peerphinderlogin");
-session_start();
-//session_regenerate_id(TRUE);
-print_r($_SESSION["UserID"]);
-if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
-    // last request was more than 10 minutes ago
-    session_unset();     // unset $_SESSION variable for the run-time 
-    session_destroy();   // destroy session data in storage
-	echo "<p>Session Timed out</p>";
-	header("Location: http://peerphinder.com");
-}
-$_SESSION['LAST_ACTIVITY']= time(); // update last activity time stamp
-$servername = "localhost";
-$DBusername = "cl29-mjgppg";
-$DBpassword = "f4V-NrKV7";
-$DBname = "cl29-mjgppg";
-
-
-$conn = new mysqli($servername, $DBusername, $DBpassword, $DBname);
-//connects to the database based on the variables defined in the first lines
-if ($conn->connect_error) {
- die("Connection failed: " . $conn->connect_error);
-}
-else {
-	echo "connected";
-}
-$UniqueUser= $_SESSION["UserID"];
-$query= mysqli_query($conn, "SELECT * FROM UserInfo WHERE UserName= '$UniqueUser'");
-if ($query) {
-	echo "query successful";
-	echo mysqli_num_rows($query);
-}
-$getinfo= $query->fetch_array();
-echo $getinfo;
-mysqli_close($conn);
-echo $getinfo;
-if ($getinfo) {
-	echo "info gathered";
-}
-echo $getinfo;
-$user_name= htmlentities($getinfo[0]);
-$EMail= htmlentities($getinfo[1]);
-$FirstName= htmlentities($getinfo[3]);
-$MiddleName=htmlentities($getinfo[4]);
-$LastName=htmlentities($getinfo[5]);
-$College= htmlentities($getinfo[6]);
-$Major= htmlentities($getinfo[7]);
-$Minor= htmlentities($getinfo[8]);
-$Phone_Number= htmlentities($getinfo[9]);
-$Profile_Picture= htmlentities($getinfo[10]);
-$bio= htmlentities($getinfo[11]);
-
+require 'functions.php';
+sessionpage();
+retrieveUserInfo();
 ?>
 <html>
 	<head>
@@ -75,9 +26,9 @@ $bio= htmlentities($getinfo[11]);
 		<div id="pageinfo">
 			<p id="message">This page is what other users will see when they view you</p>
 			<div id="name">
-				<p class="name"><?php echo $FirstName; ?></p>
-				<p class="name"><?php echo $MiddleName; ?></p>
-				<p class="name"><?php echo $LastName; ?></p>
+				<p class="name"><?php print_r($FirstName); ?></p>
+				<p class="name"><?php print_r($MiddleName); ?></p>
+				<p class="name"><?php print_r($LastName); ?></p>
 			</div>
 			<div id="biography">
 				<p> biography</p>
@@ -96,26 +47,35 @@ $bio= htmlentities($getinfo[11]);
 			<p id="space"></p> <!-- separates -->
 			
 			
-			<?php if (count($shop) > 0): ?>
-				<table>
-				  <thead>
+			<table>
+				<thead>
 					<tr>
 						<th class="tableh tabler">Class</th>
 						<th class="tableh tabler">Time</th>
 						<th class="tableh tabler">Professor</th>
 						<th class="tableh">Location</th>
 					</tr>
-				  </thead>
-				  <tbody>
-			<?php foreach ($shop as $row): array_map('htmlentities', $row); ?>
-				<tr>
-				  <td class="tabler tableb"><?php echo implode('</td><td>', $row); ?></td>
-				</tr>
-			<?php endforeach; ?>
-				</tbody>
-				</table>
-			<?php endif; ?>
-			
+				</thead>
+				<tbody>
+					<tr>
+		<!--
+					<?php
+					/*
+						$numclasses= count($classes);
+						$count=0;
+						while ($count< $numclasses) {
+						echo "<td class="tabler tableb"><?php 
+														echo "$CLasses[$count]";
+													?>
+						</td>"
+						$count= $count+1;
+						}
+					*/
+					?>
+					</tr>
+			</tbody>
+			</table>
+		-->	
 			
 		<!--	above code should equate to the table below but it may need some adjusting
 			<table>

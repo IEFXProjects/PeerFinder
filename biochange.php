@@ -1,3 +1,8 @@
+<?php
+require 'functions.php';
+sessionpage();
+retrieveUserInfo();
+?>
 <html>
 	<head>
 		<script src="texteditorfunctions.js"></script>
@@ -37,7 +42,7 @@
 		<!-- Hide(but keep)your normal textarea and place in the iFrame replacement for it -->
 		<textarea style="display:none;" name="myTextArea" id="myTextArea" cols="100" rows="14">
 			<?php
-				if (!$bio=0) {
+				if ($bio != 0) {
 					echo $bio;
 				}		
 			?>

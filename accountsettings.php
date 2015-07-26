@@ -1,7 +1,8 @@
 <html>
 <head>
 	<?php 
-		require "functions.php";
+		require 'functions.php';
+		sessionpage();
 		retrieveUserInfo();
 	?>
 </head>

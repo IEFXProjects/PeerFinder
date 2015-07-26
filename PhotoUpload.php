@@ -1,4 +1,7 @@
 <?php 
+require 'functions.php';
+sessionpage();
+retrieveUserInfo();
 $target_dir = "/UserPictureUploads";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;

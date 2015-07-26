@@ -1,22 +1,12 @@
 <?php 
+require 'functions.php';
+sessionpage();
+retrieveUserInfo();
 echo '<h2>You posted:</h2><hr />'. $_POST['title'] . '<hr />' . stripslashes($_POST['myTextArea']);
 $UserID= htmlentities($_SESSION['UserID']);
 $bioupdate= $_POST['myTextArea']);
 
-$servername = "localhost";
-$DBusername = "cl29-mjgppg";
-$DBpassword = "f4V-NrKV7";
-$DBname = "cl29-mjgppg";
-
-
-$conn = new mysqli($servername, $DBusername, $DBpassword, $DBname);
-//connects to the database based on the variables defined in the first lines
-if ($conn->connect_error) {
- die("Connection failed: " . $conn->connect_error);
-}
-else {
-	echo "connected";
-}
+require 'DBconnection.php';
 $checkbio= mysqli_query($conn, "SELECT Biography FROM UserInfo WHERE UserName= '$UserID'");
 if (!$checkbio=0) {
 	$stmt = $mysqli->prepare("UPDATE UserInfo SET Biography = ?"); 
