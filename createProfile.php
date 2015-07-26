@@ -41,7 +41,6 @@
 	//all of the if statements test to make sure the user inputed the form data correctly
 	
 	include_once 'DBconnection.php';
-	connect();
 	
 	$username = mysqli_real_escape_string($conn, $username);
 	$email = mysqli_real_escape_string($conn, $email);

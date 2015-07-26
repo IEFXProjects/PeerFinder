@@ -1,14 +1,16 @@
 <?php
 session_name("Peerphinderlogin");
 session_start();
-session_regenerate_id(TRUE);
+//session_regenerate_id(TRUE);
+print_r($_SESSION["UserID"]);
 if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
     // last request was more than 10 minutes ago
     session_unset();     // unset $_SESSION variable for the run-time 
     session_destroy();   // destroy session data in storage
+	echo "<p>Session Timed out</p>";
+	header("Location: http://peerphinder.com");
 }
 $_SESSION['LAST_ACTIVITY']= time(); // update last activity time stamp
-
 $servername = "localhost";
 $DBusername = "cl29-mjgppg";
 $DBpassword = "f4V-NrKV7";
@@ -23,10 +25,20 @@ if ($conn->connect_error) {
 else {
 	echo "connected";
 }
-$UserID= htmlentities($_SESSION['UserID']);
-$getinfo= mysqli_query($conn, "SELECT * FROM UserInfo WHERE UserName= '$UserID'");
+$UniqueUser= $_SESSION["UserID"];
+$query= mysqli_query($conn, "SELECT * FROM UserInfo WHERE UserName= '$UniqueUser'");
+if ($query) {
+	echo "query successful";
+	echo mysqli_num_rows($query);
+}
+$getinfo= $query->fetch_array();
+echo $getinfo;
 mysqli_close($conn);
-
+echo $getinfo;
+if ($getinfo) {
+	echo "info gathered";
+}
+echo $getinfo;
 $user_name= htmlentities($getinfo[0]);
 $EMail= htmlentities($getinfo[1]);
 $FirstName= htmlentities($getinfo[3]);
@@ -38,18 +50,7 @@ $Minor= htmlentities($getinfo[8]);
 $Phone_Number= htmlentities($getinfo[9]);
 $Profile_Picture= htmlentities($getinfo[10]);
 $bio= htmlentities($getinfo[11]);
-/*
-$user_name= $_SESSION["User_Name"];
-$EMail= $_SESSION["Email"];
-$FirstName= $_SESSION["First_Name"];
-$MiddleName= $_SESSION["Middle_Name"];
-$LastName= $_SESSION["Last_Name"];
-$COllege= $_SESSION["College"];
-$MAjor= $_SESSION["Major"];
-$MInor= $_SESSION["Minor"];
-$Phone_Number= $_SESSION["Phone_Number"];
-$Profile_Picture= $_SESSION["Profile_Picture"];
-*/
+
 ?>
 <html>
 	<head>
@@ -74,16 +75,16 @@ $Profile_Picture= $_SESSION["Profile_Picture"];
 		<div id="pageinfo">
 			<p id="message">This page is what other users will see when they view you</p>
 			<div id="name">
-				<p class="name"><?php print($FirstName); ?></p>
-				<p class="name"><?php print($MiddleName); ?></p>
-				<p class="name"><?php print($LastName); ?></p>
+				<p class="name"><?php echo $FirstName; ?></p>
+				<p class="name"><?php echo $MiddleName; ?></p>
+				<p class="name"><?php echo $LastName; ?></p>
 			</div>
 			<div id="biography">
 				<p> biography</p>
-				<p id="biotext">$bio</p>
+				<p id="biotext"><?php echo $bio;?></p>
 				<a href="biochange.php" id="biochange">
 					<?php 
-						if (!$bio=0) {
+						if ($bio !=0) {
 							echo "click here to make changes to your biography";
 						}
 						else {
