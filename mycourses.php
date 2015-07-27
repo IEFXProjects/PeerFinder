@@ -1,4 +1,8 @@
-<!doctype html>
+<?php
+require 'functions.php';
+sessionpage();
+retrieveUserInfo();
+?>
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="mycourses.css"/>
@@ -20,27 +24,34 @@
 		</div>
 		<div class="main">
 			<h1 id="mycoursesmain">My Courses</h1>
-				<table>
-					<thead>
-						<tr>
-							<th class="tableh tabler">Class</th>
-							<th class="tableh tabler">Time</th>
-							<th class="tableh tabler">Professor</th>
-							<th class="tableh">Location</th>
-						</tr>
-					</thead>
-				
-				<tbody>
+						<?php if ($CLasses != 0): ?>
+			<a href="classinput.php"> Click here to change your Class list</a>
+			<table>
+				<thead>
 					<tr>
-						<td class="tabler tableb">Class1</td>
-						<td class="tabler tableb">time1</td>
-						<td class="tabler tableb">professor1</td>
-						<td class="tableb">location1</td>
-						<!-- if we cant get a program to automatically fill out the table for us, we will have to code a row for the maximum number of CRN codes somebody can have at one time -->
+						<th class="tableh tabler">Class</th>
+						<th class="tableh tabler">Time</th>
+						<th class="tableh tabler">Professor</th>
+						<th class="tableh">Location</th>
 					</tr>
-				</tbody>
-			<a id="enterCRNS" href="classinput.php">To enter or change classes click here</a>
-			
+				</thead>
+				<tbody>
+					<?php
+						$numclasses= count($CLasses);
+						$count=0;
+						while ($count< $numclasses+1) {
+						echo "<tr>
+							<td class=\"tabler tableb\">$CLasses[$count]
+							</td>
+						</tr>";
+						$count= $count+1;
+						}
+					?>
+			</tbody>
+			</table>	
+			<?php else: ?>
+			<p> This person has not added any classes yet</p>
+			<?php endif; ?>
 		</div>
 	</body>
 </html>

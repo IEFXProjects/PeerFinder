@@ -46,7 +46,7 @@ retrieveUserInfo();
 			<img src="$Profile_Picture" id="ppic"/>
 			<p id="space"></p> <!-- separates -->
 			
-			
+			<?php if ($CLasses != 0): ?>
 			<table>
 				<thead>
 					<tr>
@@ -57,47 +57,22 @@ retrieveUserInfo();
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-		<!--
 					<?php
-					/*
-						$numclasses= count($classes);
+						$numclasses= count($CLasses);
 						$count=0;
-						while ($count< $numclasses) {
-						echo "<td class="tabler tableb"><?php 
-														echo "$CLasses[$count]";
-													?>
-						</td>"
+						while ($count< $numclasses+1) {
+						echo "<tr>
+							<td class=\"tabler tableb\">$CLasses[$count]
+							</td>
+						</tr>";
 						$count= $count+1;
 						}
-					*/
 					?>
-					</tr>
 			</tbody>
-			</table>
-		-->	
-			
-		<!--	above code should equate to the table below but it may need some adjusting
-			<table>
-					<thead>
-						<tr>
-							<th class="tableh tabler">Class</th>
-							<th class="tableh tabler">Time</th>
-							<th class="tableh tabler">Professor</th>
-							<th class="tableh">Location</th>
-						</tr>
-					</thead>
-				<tbody>
-					<tr>
-						<td class="tabler tableb">Class1</td>
-						<td class="tabler tableb">time1</td>
-						<td class="tabler tableb">professor1</td>
-						<td class="tableb">location1</td>
-					</tr>
-				</tbody>
-		-->
-			
-			
+			</table>	
+			<?php else: ?>
+			<p> This person has not added any classes yet</p>
+			<?php endif; ?>
 		</div>
 	</body>
 </html>			

@@ -1,12 +1,6 @@
 <?php
-error_reporting(E_ALL);
-session_start();
-print_r($_SESSION["breakfast"]);
-$test2= $_SESSION["breakfast"];
-print_r($test2);
+include ($_SERVER['DOCUMENT_ROOT'].'/functions.php');
+sessionpage();
+retrieveUserInfo();
+print_r($UniqueUser);
 ?>
-<html>
-	<body>
-	<a href="test1.php"><?php echo "test1";?></a>
-	</body>
-</html>

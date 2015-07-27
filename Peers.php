@@ -1,12 +1,8 @@
 <?php
-if(!isset($_COOKIE['cookie'])){
-    echo: "usercookie is not present";
-	echo: "please login";
-	header("Location: http://www.peerphinder.com"); /* Redirects browser back to index if the cookie is not present*/
-	exit();
-}
+require 'functions.php';
+sessionpage();
+retrieveUserInfo();
 ?>
-<!doctype html>
 <html>
 	<head>
 		<link type="text/css" rel="stylesheet" href="peers.css"/>

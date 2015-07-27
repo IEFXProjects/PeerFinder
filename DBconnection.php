@@ -1,4 +1,5 @@
 <?php
+	global $servername, $DBusername, $DBpassword, $DBname, $conn;
 	$servername = "localhost";
 	$DBusername = "cl29-mjgppg";
 	$DBpassword = "f4V-NrKV7";

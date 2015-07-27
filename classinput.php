@@ -55,19 +55,18 @@ retrieveUserInfo();
 					</thead>
 				
 				<tbody>
-					<tr>
-						<?php
-							$numclasses= count($classes);
-							$count=0;
-							while ($count< $numclasses) {
-							echo "<td class="tabler tableb"><?php 
-															echo "$CLasses[$count];"
-														?>
-							</td>"
-							$count= $count+1;
-							}
-						?>
-					</tr>
-				</tbody>			
+					<?php
+						$numclasses= count($CLasses);
+						$count=0;
+						while ($count< $numclasses+1) {
+						echo "<tr>
+							<td class=\"tabler tableb\">$CLasses[$count]
+							</td>
+						</tr>";
+						$count= $count+1;
+						}
+					?>
+				</tbody>
+			</table>				
 		</div>		
 	</body>
