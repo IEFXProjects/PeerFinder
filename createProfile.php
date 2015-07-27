@@ -40,7 +40,7 @@
 	//tests to see if the user inputed a valid email...if they did it will do nothing...if they did not it will end the script
 	//all of the if statements test to make sure the user inputed the form data correctly
 	
-	include_once 'DBconnection.php';
+	require 'DBconnection.php';
 	
 	$username = mysqli_real_escape_string($conn, $username);
 	$email = mysqli_real_escape_string($conn, $email);

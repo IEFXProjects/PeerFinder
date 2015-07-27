@@ -8,18 +8,11 @@ $bioupdate= $_POST['myTextArea'];
 
 require 'DBconnection.php';
 $checkbio= mysqli_query($conn, "SELECT Bio FROM UserInfo WHERE UserName= '$UserID'");
-if (!$checkbio=0) {
-	$stmt = $mysqli->prepare("UPDATE UserInfo SET Biography = ?");
-	$stmt->bind_param($bioupdate);
-	$stmt->execute(); 
-	$stmt->close();
-	mysqli_close($conn);
+if ($checkbio != NULL) {
+	$update = $mysqli_query($conn,"UPDATE UserInfo SET Bio = '$bioupdate'");
 }
 else {
-	$sql= "INSERT INTO UserInfo(Bio) VALUES('$bioupdate')";
-	//pushes refined data to database table based on header values
-
-	if ($conn->query($sql) === TRUE) {
+	if ($mysqli_query($conn, "INSERT INTO UserInfo(Bio) VALUES('$bioupdate')") === TRUE) {
 		echo "New record created successfully";
 		echo "<a href=\"https://web125.secure-secure.co.uk/peerphinder.com/biochange.php\"</a>";
 	} else {
