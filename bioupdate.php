@@ -3,17 +3,19 @@ require 'functions.php';
 sessionpage();
 retrieveUserInfo();
 echo '<h2>You posted:</h2><hr />'. $_POST['title'] . '<hr />' . stripslashes($_POST['myTextArea']);
-$UserID= htmlentities($_SESSION['UserID']);
 $bioupdate= $_POST['myTextArea'];
 
 require 'DBconnection.php';
-$checkbio= mysqli_query($conn, "SELECT Bio FROM UserInfo WHERE UserName= '$UserID'");
+$bioupdate= mysqli_real_escape_string($conn, $bioupdate);
+$bioupdate= strval($bioupdate);
+$checkbio= mysqli_query($conn, "SELECT Bio FROM UserInfo WHERE UserName= '$UniqueUser'");
 if ($checkbio != NULL) {
-	$update = $mysqli_query($conn,"UPDATE UserInfo SET Bio = '$bioupdate'");
+	$update = $mysqli_query($conn,"UPDATE UserInfo SET Bio='$bioupdate' WHERE UserName='$UniqueUser'");
+	echo "Your biography has been successfully updated";
 }
 else {
 	if ($mysqli_query($conn, "INSERT INTO UserInfo(Bio) VALUES('$bioupdate')") === TRUE) {
-		echo "New record created successfully";
+		echo "Your Biography has been successfully added";
 		echo "<a href=\"https://web125.secure-secure.co.uk/peerphinder.com/biochange.php\"</a>";
 	} else {
 		echo "Error: " . $sql . "<br>" . $conn->error;

@@ -73,6 +73,7 @@ retrieveUserInfo();
 			<?php else: ?>
 			<p> This person has not added any classes yet</p>
 			<?php endif; ?>
+			<a href="https://web125.secure-secure.co.uk/peerphinder.com/schedule/home.html">GO schedule your life</a>
 		</div>
 	</body>
 </html>			

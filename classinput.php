@@ -27,16 +27,20 @@ retrieveUserInfo();
 		<div id="enterdelete">
 			<div id="entercrn">
 				<h1>Add Class</h1>
-				<p id="message">Enter your CRN codes here<br> We will fill in the rest<br> of your class information<br>automatically<br></p>
-				<form action="classinput.py">
-				<input id="add" type="text" placeholder="CRNcode" name="CRN1">
+				<p id="message">Enter your Class Info here<p>
+				<form action="classinput.php">
+				<input id="add" type="text" placeholder="CRNcode" name="CRN">
+				<input type="text" placeholder="ClassName" name="ClassName">
+				<input type="text" placeholder="Time" name="Time">
+				<input type="text" placeholder="Professor" name="Professor">
+				<input type="text" placeholder="Location" name="Location">
 				<input type="submit" value="add">
 			</div>
 			<div id="deletecrn">
 				<h1>Delete Class</h1>
-				<p id="message"> Enter your CRN code here<br> We will delete<br> the class<br> from your profile</p>
-				<form action="classdelete.py">
-				<input type="text" placeholder="CRNcode" name="dCRN">
+				<p id="message"> Enter your CRN code here and we will delete the class from your profile</p>
+				<form action="classdelete.php">
+				<input type="text" placeholder="CRNcode" name="CRN">
 				<input type="submit" value="delete">
 			</div>
 		</div>
@@ -60,8 +64,7 @@ retrieveUserInfo();
 						$count=0;
 						while ($count< $numclasses+1) {
 						echo "<tr>
-							<td class=\"tabler tableb\">$CLasses[$count]
-							</td>
+							<td class=\"tabler tableb\">$CLasses[$count]</td>
 						</tr>";
 						$count= $count+1;
 						}
