@@ -46,19 +46,22 @@ function sessionpage() {
 function UserSchedule($UniqueUser) {
 	global $Act, $time;
 	require 'DBconnection2.php';
-	$query= mysqli_query($conn, "SELECT * FROM Events WHERE UserName= '$UniqueUser'");
-	if ($query) {
-		echo "query successful";
-		echo mysqli_num_rows($query);
+	$query= mysqli_query($conn2, "SELECT * FROM Events WHERE Username= '$UniqueUser'");
+	if (mysqli_num_rows($query) == 0) {
+		$createuser= mysqli_query($conn2, "INSERT INTO Events(Username) VALUES('$UniqueUser')");
+		$Act= NULL;
+		if ($createuser != TRUE) {
+			die("There was an error in adding your event please try again" . $conn2->connect_error);
+		}
 	}
-	$getinfo= $query->fetch_array();
-	echo $getinfo;
-	mysqli_close($conn);
-	echo $getinfo;
-	if ($getinfo) {
-		echo "info gathered";
+	//this adds the user's username to the events database if it is not already present
+	else{
+		$getinfo= $query->fetch_array();
+		mysqli_close($conn2);
+		$Act= $getinfo[1];
+		if ($Act != NULL) {
+			$Act= htmlentities(unserialize($Act));
+		}		
 	}
-	echo $getinfo;
-	$Act= htmlentities(unserialize($Act));
 }
 ?>
