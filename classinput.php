@@ -28,7 +28,7 @@ retrieveUserInfo();
 			<div id="entercrn">
 				<h1>Add Class</h1>
 				<p id="message">Enter your Class Info here<p>
-				<form action="classinput.php">
+				<form action="classinputprocessing.php">
 				<input id="add" type="text" placeholder="CRNcode" name="CRN">
 				<input type="text" placeholder="ClassName" name="ClassName">
 				<input type="text" placeholder="Time" name="Time">

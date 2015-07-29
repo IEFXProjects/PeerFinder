@@ -3,10 +3,11 @@ require 'functions.php';
 sessionpage();
 retrieveUserInfo();
 $target_dir = "../UserPictureUploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["image"]);
+$target_file = $target_dir . basename($_FILES['fileToUpload']['image']);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 echo $imageFileType;
+/*
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -29,7 +30,7 @@ if ($_FILES["fileToUpload"]["size"] > 500000) {
     $uploadOk = 0;
 }
 // Allow certain file formats
-if($imageFileType != "jpg" or $imageFileType != "png" or $imageFileType != "jpeg" or $imageFileType != "JPG" or $imageFileType != "PNG" or $imageFileType != "JPEG" or $imageFileType != "GIF" or $imageFileType != "gif" ) {
+if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "JPG" && $imageFileType != "PNG" && $imageFileType != "JPEG" && $imageFileType != "GIF" && $imageFileType != "gif" ) {
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
 }
@@ -38,10 +39,11 @@ if ($uploadOk == 0) {
     echo " Your file was not uploaded.";
 // if everything is ok, try to upload file
 } else {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["image"]). " has been uploaded.";
+	*/
+    if (move_uploaded_file($_FILES['fileToUpload']['tmp_name'], $target_file)) {
+        echo "The file ". basename( $_FILES['fileToUpload']['image']). " has been uploaded.";
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
-}
+//}
 ?>

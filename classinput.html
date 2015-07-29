@@ -23,15 +23,19 @@
 		<div id="enterdelete">
 			<div id="entercrn">
 				<h1>Add Class</h1>
-				<p id="message">Enter your CRN codes here<br> We will fill in the rest<br> of your class information<br>automatically<br></p>
-				<form action="classinput.py">
-				<input id="add" type="text" placeholder="CRNcode" name="CRN1">
-				<input type="submit" value="add">
+				<p id="message">Enter your Class information here</p>
+				<form action="classinputprocessing.php">
+				<input type="number" placeholder="CRNcode" name="CRN">
+				<input type="text" placeholder="Class Name" name="ClassName">
+				<input type="text" placeholder="Class Time" name="Time">
+				<input type="text" placeholder="Professor Name" name="Professor">
+				<input type="text" placeholder="Building name" name="Location">
+				<input type="submit" value="add Class">
 			</div>
 			<div id="deletecrn">
 				<h1>Delete Class</h1>
 				<p id="message"> Enter your CRN code here<br> We will delete<br> the class<br> from your profile</p>
-				<form action="classdelete.py">
+				<form action="classdelete.php">
 				<input type="text" placeholder="CRNcode" name="dCRN">
 				<input type="submit" value="delete">
 			</div>
