@@ -9,7 +9,7 @@ require 'DBconnection.php';
 $bioupdate= mysqli_real_escape_string($conn, $bioupdate);
 $bioupdate= strval($bioupdate);
 $checkbio= mysqli_query($conn, "SELECT Bio FROM UserInfo WHERE UserName= '$UniqueUser'");
-if ($checkbio != NULL) {
+if (!is_null($checkbio)) {
 	$update = $mysqli_query($conn,"UPDATE UserInfo SET Bio='$bioupdate' WHERE UserName='$UniqueUser'");
 	echo "Your biography has been successfully updated";
 }

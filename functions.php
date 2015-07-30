@@ -28,7 +28,7 @@ function retrieveUserInfo() {
 	$Phone_Number= htmlentities($getinfo[10]);
 	$Profile_Picture= htmlentities($getinfo[11]);
 	$bio= htmlentities($getinfo[12]);
-	$CLasses= array(htmlentities(unserialize($getinfo[13])));
+	$CLasses= array(unserialize($getinfo[13]));
 }
 function sessionpage() {
 	session_name("Peerphinderlogin");

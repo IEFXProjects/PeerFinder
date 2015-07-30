@@ -28,13 +28,14 @@ retrieveUserInfo();
 			<div id="entercrn">
 				<h1>Add Class</h1>
 				<p id="message">Enter your Class Info here<p>
-				<form action="classinputprocessing.php">
+				<form method="POST" action="classinputprocessing.php">
 				<input id="add" type="text" placeholder="CRNcode" name="CRN">
 				<input type="text" placeholder="ClassName" name="ClassName">
-				<input type="text" placeholder="Time" name="Time">
+				<input type="text" placeholder="Time" name="ClassTime">
 				<input type="text" placeholder="Professor" name="Professor">
 				<input type="text" placeholder="Location" name="Location">
 				<input type="submit" value="add">
+				</form>
 			</div>
 			<div id="deletecrn">
 				<h1>Delete Class</h1>
