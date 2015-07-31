@@ -15,7 +15,7 @@ retrieveUserInfo();
 			<img src="Pictures/PeerPhinderLogo.png" id="photo"/>
 				<div id="largetab">
 						<a href="mycourses.php"><h3 class="tabs blue" id="Mycourses">My Courses</h3></a>
-						<a href="peers.php"><h3 class="tabs orange" id="Peers">Peers</h3></a>
+						<a href="Peers.php"><h3 class="tabs orange" id="Peers">Peers</h3></a>
 						<a href="Profilepage.php"><h3 class="tabs blue" id="Myprofile">My Profile</h3></a>
 						<a href="aboutus.html"><h3 class="tabs orange" id="aboutus">About Us</h3></a>
 						<a href="search.php"><h3 class="tabs blue" id="search">search</h3></a>
@@ -57,17 +57,21 @@ retrieveUserInfo();
 					</tr>
 				</thead>
 				<tbody>
-					<?php
-						$numclasses= count($CLasses);
-						$count=0;
-						while ($count< $numclasses+1) {
-						echo "<tr>
-							<td class=\"tabler tableb\">$CLasses[$count]
-							</td>
-						</tr>";
-						$count= $count+1;
-						}
-					?>
+					<?php $numclasses= count($CLasses); $count= 0; ?>
+						<?php while ($count<= $numclasses): ?>
+						<tr>
+							<?php
+							$count2 = 0;
+
+							while ($count2 <= 4) {
+					//Change to 4 when CRN column is not shown
+								print_r("<td class=\"tabler tableb\">" . $CLasses[$count][$count2+1] . "</td>");
+								$count2= $count2 + 1;
+							}
+							?>
+						</tr>
+						<?php $count= $count+1; ?>
+						<?php endwhile ?>
 			</tbody>
 			</table>	
 			<?php else: ?>

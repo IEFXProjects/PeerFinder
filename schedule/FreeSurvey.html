@@ -1,0 +1,292 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <meta charset="utf-8">
+  <title>Free Time</title>
+</head>
+<body>
+  <h1>Free Time</h1>
+  
+  <!--Yes/No-->
+  <form>
+    <h4>Would you like to list free time activities in your schedule?</h4>
+    <input type="radio" name = "FreeTime" value="yes" id = "yesFreeTime" checked>Yes
+    <input type="radio" name = "FreeTime" value="no" id = "noFreeTime">No
+    <br>
+  </form>
+  
+  <!--Bootstrap Progress Bar-->    
+    <h4 id = "yourday">Your Week</h4><div class="progress progress-striped">
+      </div>
+  
+  
+    <!--<form id = "ActivitySelect"></form> -->
+	
+    <form method="POST" action="FreeTime.php" id = "ActivityInputs">
+	How many Activities will you list? 
+	<select name="chooseActnum" class="nums" id = "Actnums">
+	<option value = "1">1</option>
+	<option value = "2">2</option>
+	<option value = "3">3</option>
+	<option value = "4">4</option>
+	<option value = "5">5</option>
+	<option value = "6">6</option>
+	<option value = "7">7</option>
+	<option value = "8">8</option>
+	<option value = "9">9</option>
+	<option value = "10">10</option>
+	<option value = "11">11</option>
+	<option value = "12">12</option>
+	<option value = "13">13</option>
+	<option value = "14">14</option>
+	<option value = "15">15</option>
+	<option value = "16">16</option>
+	<option value = "17">17</option>
+	<option value = "18">18</option>
+	<option value = "19">19</option>
+	<option value = "20">20</option>
+	</select>
+	<br><br> 
+	Activity 1: 
+	<input type = "text" name= "Act1" class = "Acts"><br>
+	Time: 
+	<input type = "text" name= "time1" id = "a1Time">
+	<select name="chooseMH1" class="MH" id = "MHa1">
+	<option selected="selected">Minute(s)</option>
+	<option>Hour(s)</option>
+	</select>
+	<div id = "activities2to20"></div>
+	<input type="submit" name="submit" value="Submit">
+	</form>
+  
+  
+  <style>
+  *{
+  text-align: center;
+  margin: auto;
+}
+body{
+  background-color: #ffb6c1;
+}
+input[name="time"]{
+  width: 40px;
+}
+input[class="Acts"]{
+  text-align: left;
+}
+h1{
+  text-align: center;
+}
+h4{
+  display: inline-block;
+}
+h5{
+  display: inline-block;
+  font-size: 20px;
+}
+br{
+  height: 100px;
+}
+.progress{
+  width: 1300px;
+  margin: auto;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;  
+  background-color: #636368;
+  overflow: hidden;
+}
+
+li{
+  display: inline;
+  float: left;
+  margin-left: 40px;
+  color:white;
+}
+
+a{
+  text-align: center;
+  
+  width:150px;
+  font-weight: bold;
+  font-family: Arial;
+  color:white;
+  text-decoration:none;
+}
+
+a:active {
+color: black;
+/*change color later*/
+
+.nav{
+color:white;
+}
+  </style>
+  
+  
+  <script>
+  //Hide to fade in later
+$('#activities2to20').hide();
+
+$(document).ready(function() {
+  
+  //Creates Activities option
+    $('#ActivitySelect').append('<h3>Activities</h3>');
+  
+  
+  for (var i= 2; i<=20; i++)
+    {
+      $('#activities2to20').append('<br> <form class = a' +i+ '>Activity ' +i+ ': <input type = "text" name= "Act' +i+ '" class = "Acts"><br>    Time: <input type = "text" name= "time'+i+'" id = "a'+i+'Time"> <select name="chooseMH'+i+'" class="MH" id = "MHa'+i+'"> <option selected="selected">Minute(s)</option><option>Hour(s)</option></select></form>');
+    }
+  
+  for (var r= 1; r<=20; r++)
+    {
+      $('.progress').append('<div class="progress-bar progress-bar-custom active" id = "abar'+r+'" style="width: 0%; background: rgba(235,'+(82+7*r)+','+(82+7*r)+', 1);"><span class="sr-only">10% Complete</span></div>');
+    }
+  
+  (function(){
+    // Conversions for progress bar
+    var hours = (1/168)*($('.progress').width());
+    var mins = (1/10080)*($('.progress').width());
+    
+    
+  /*              ---
+  Fading out specific options, changing bar
+                  ---                    */
+  
+  //Activities
+  $('input[name=FreeTime]').on('change', function(){
+    
+    var yesOrNo = $('input[name=FreeTime]:checked').val();
+    if (yesOrNo == 'no')
+    {
+      $('#ActivitySelect').fadeOut();
+      $('#ActivityInputs').fadeOut();
+      for (var p = 1; p<=20; p++)
+        {
+         $("#abar"+p).animate({width: 0});
+        }
+    }
+    else if (yesOrNo == 'yes')
+     {
+        $('#ActivitySelect').fadeIn();
+        $('#ActivityInputs').fadeIn();
+       
+       var num = $('#Actnums').val(); 
+       for(var e = 20; e>num; e--)
+         {
+          $('.a'+e).hide();
+         }
+        
+      for(var k = 1; k<=20; k++)
+      {
+        if($("#MHa"+k).val() == 'Hour(s)')
+        {
+          $("#abar"+k).animate({width: $('input[id=a'+k+'Time]').val() * hours});
+        }
+        else if ($("#MHa"+k).val() == 'Minute(s)')
+          {
+            $("#abar"+k).animate({width: $('input[id=a'+k+'Time]').val() * mins});
+          }
+      }
+     }
+  });
+    
+    
+  /*                 ---
+  Progress bar operations (All 20 Activities)
+                     ---                   */
+    
+    function inputs(i){
+      var v = i;
+     
+  $('#a'+v+'Time').change(function(){
+    var x = $(this).val();
+    var y = $('#MHa'+v).val();
+
+    if(y == 'Hour(s)')
+    {
+    $('#abar'+v).animate({width: x*hours});
+    }
+    else if (y == 'Minute(s)')
+      {
+        $('#abar'+v).animate({width: x*mins});
+      }
+        });
+  
+  $('#MHa'+v).change(function(){
+    var y = $(this).val();
+    var x = $('#a'+v+'Time').val();
+
+    if(y == 'Hour(s)')
+    {
+    $('#abar'+v).animate({width: x*hours});
+    }
+    else if (y == 'Minute(s)')
+      {
+        $('#abar'+v).animate({width: x*mins});
+      }
+        });
+    }
+    
+    for (var l = 1; l<=20; l++)
+      {
+        inputs(l);
+      }
+    
+  
+  //Activity Operations (Choosing number)
+  $("#Actnums").change(function(){
+    var num = $('#Actnums').val(); 
+    
+    $('#activities2to20').fadeIn();
+    
+    for (var m = 1; m<=20; m++)
+      {
+        if (num == m)
+        {
+          for (var i = 20; i > num; i--)
+          {
+            $('.a'+i).fadeOut('fast');
+            $("#abar"+i).animate({width: 0});
+            
+            $('.a'+num).fadeIn();
+          }
+          for (var n = 0; n <= num; n++)
+          {
+            $('.a'+n).fadeIn();
+            
+            if($("#MHa"+n).val() == 'Hour(s)')
+            {
+          $("#abar"+n).animate({width: $('input[id=a'+n+'Time]').val() * hours});
+            }
+        else if ($("#MHa"+n).val() == 'Minute(s)')
+            {
+            $("#abar"+n).animate({width: $('input[id=a'+n+'Time]').val() * mins});
+            }
+          }
+        }
+      }
+  });
+  
+  })(); //end of function
+});
+  </script>
+ 
+</body>
+</html>

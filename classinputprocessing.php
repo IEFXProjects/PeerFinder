@@ -8,12 +8,13 @@ $ClassName=$_POST[ClassName];
 $Time=$_POST[ClassTime];
 $Professor=$_POST[Professor];
 $Location=$_POST[Location];
-echo $CRN;
-echo $ClassName;
-echo $Time;
-echo $Professor;
-echo $Location;
 
+if (!(ctype_digit($CRN))) {
+	die("CRN needs to be composed of numbers");
+}
+if (strlen($CRN) != 7) {
+	die("CRN needs to be 7 numbers long");
+}
 require 'DBconnection.php';
 
 $CRN=mysqli_real_escape_string($conn, $CRN);
@@ -22,17 +23,16 @@ $Time=mysqli_real_escape_string($conn, $Time);
 $Professor=mysqli_real_escape_string($conn, $Professor);
 $Location=mysqli_real_escape_string($conn, $Location);
 
-$CRNcheck=mysqli_query($conn, "SELECT Classes FROM UserInfo WHERE UserName= '$UniqueUser'");
-print_r($CRNcheck);
+$Classquery=mysqli_query($conn, "SELECT Classes FROM UserInfo WHERE UserName= '$UniqueUser'");
+$CRNcheck= $Classquery->fetch_array(MYSQLI_NUM);
 $numClasses= mysqli_num_rows($CRNcheck);
-print_r($numClasses);
 mysqli_close($conn);
 
-if ($pulledClass= unserialize($CRNcheck)) {
-	$pulledClass= unserialize($CRNcheck);
-	print_r($pulledClass);
+if ($pulledClass= unserialize($CRNcheck[0])) {
+	//CRNcheck comes back as an array with only one value which is the serialized array that we inserted... So the [0] is needed
 	$count=0;
-	while ($count < count($pulledClass)) {
+	$length= count($pulledClass);
+	while ($count < $length) {
 		$search= array_search($CRN, $pulledClass[$count]);
 		if ($search === FALSE) {
 		}
@@ -42,9 +42,8 @@ if ($pulledClass= unserialize($CRNcheck)) {
 		$count=$count+1;
 	}
 	$Class= array($CRN, $ClassName, $Time, $Professor, $Location);
-	$length= count($pulledClass);
 	$pulledClass[$length]= $Class;
-	print_r($pulledClass);
+	//this adds the new array to the end of the current array
 	/*
 	$temp2=array();
 	foreach($pulledClass as $temp){
@@ -69,26 +68,21 @@ if ($pulledClass= unserialize($CRNcheck)) {
 else {
 	$Class= array($CRN, $ClassName, $Time, $Professor, $Location);
 	$pulledClass=array($Class);
-	print_r($pulledClass);
 }
 
 //This checks to see if they already have a class with the entered CRN
 
 
 $serializedClass= serialize($pulledClass);
-print_r($serializedClass);
 require 'DBconnection.php';
 if ($conn->query("UPDATE UserInfo SET Classes='$serializedClass' WHERE UserName='$UniqueUser'")=== TRUE) {
 	mysqli_close($conn);
-	/*
 	header("Location: https://web125.secure-secure.co.uk/peerphinder.com/classinput.php");
-	*/
 }
 else {
 	die("Error.  Could not add Class.  Please try again" . $conn->connect_error);
 }
 //This adds the new class to their overall array of classes and pushes it to the database.
-
 
 
 

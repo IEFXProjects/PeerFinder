@@ -4,18 +4,8 @@ function retrieveUserInfo() {
 	$UniqueUser= $_SESSION["UserID"];
 	require '../DBconnection.php';
 	$query= mysqli_query($conn, "SELECT * FROM UserInfo WHERE UserName= '$UniqueUser'");
-	if ($query) {
-		echo "query successful";
-		echo mysqli_num_rows($query);
-	}
 	$getinfo= $query->fetch_array();
-	echo $getinfo;
 	mysqli_close($conn);
-	echo $getinfo;
-	if ($getinfo) {
-		echo "info gathered";
-	}
-	echo $getinfo;
 	$user_name= htmlentities($getinfo[1]);
 	$EMail= htmlentities($getinfo[2]);
 	$PAssword= htmlentities($getinfo[3]);
@@ -28,12 +18,12 @@ function retrieveUserInfo() {
 	$Phone_Number= htmlentities($getinfo[10]);
 	$Profile_Picture= htmlentities($getinfo[11]);
 	$bio= htmlentities($getinfo[12]);
-	$CLasses= array(htmlentities(unserialize($getinfo[13])));
+	$CLasses= array(unserialize($getinfo[13]));
 }
 function sessionpage() {
 	session_name("Peerphinderlogin");
 	session_start();
-	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
+	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 7200)) {
 		// last page request was more than 10 minutes ago
 		session_unset();     // unset $_SESSION variable for the run-time 
 		session_destroy();   // destroy session data in storage

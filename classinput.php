@@ -14,7 +14,7 @@ retrieveUserInfo();
 			<img src="Pictures/PeerPhinderLogo.png" id="photo"/>
 				<div id="largetab">
 						<a href="mycourses.php"><h3 class="tabs blue" id="Mycourses">My Courses</h3></a>
-						<a href="peers.php"><h3 class="tabs orange" id="Peers">Peers</h3></a>
+						<a href="Peers.php"><h3 class="tabs orange" id="Peers">Peers</h3></a>
 						<a href="Profilepage.php"><h3 class="tabs blue" id="Myprofile">My Profile</h3></a>
 						<a href="aboutus.html"><h3 class="tabs orange" id="aboutus">About Us</h3></a>
 						<a href="search.php"><h3 class="tabs blue" id="search">search</h3></a>
@@ -40,9 +40,10 @@ retrieveUserInfo();
 			<div id="deletecrn">
 				<h1>Delete Class</h1>
 				<p id="message"> Enter your CRN code here and we will delete the class from your profile</p>
-				<form action="classdelete.php">
+				<form method="POST" action="classdelete.php">
 				<input type="text" placeholder="CRNcode" name="CRN">
 				<input type="submit" value="delete">
+				</form>
 			</div>
 		</div>
 		<p class="space"></p>
@@ -59,18 +60,23 @@ retrieveUserInfo();
 						</tr>
 					</thead>
 				
-				<tbody>
-					<?php
-						$numclasses= count($CLasses);
-						$count=0;
-						while ($count< $numclasses+1) {
-						echo "<tr>
-							<td class=\"tabler tableb\">$CLasses[$count]</td>
-						</tr>";
-						$count= $count+1;
-						}
-					?>
-				</tbody>
+					<tbody>
+						<?php $numclasses= count($CLasses); $count= 0; ?>
+							<?php while ($count<= $numclasses): ?>
+							<tr>
+								<?php
+								$count2 = 0;
+
+								while ($count2 <= 5) {
+						//Change to 4 when CRN column is not shown
+									print_r("<td class=\"tabler tableb\">" . $CLasses[$count][$count2] . "</td>");
+									$count2= $count2 + 1;
+								}
+								?>
+							</tr>
+							<?php $count= $count+1; ?>
+							<?php endwhile ?>
+					</tbody>
 			</table>				
 		</div>		
 	</body>
