@@ -26,18 +26,35 @@ retrieveUserInfo();
 			<a href="search.php" id="findpeers">Click here to find your peers</a>
 		</div>
 		<div id="table">
+						<?php if ($PEers != 0): ?>
 			<table>
 				<thead>
 					<tr>
-						<th class="tableh">Your Peers</th>
-						<th class="tableh">Common Classes</th>
+						<th class="tableh tabler">Class</th>
+						<th class="tableh tabler">Time</th>
+						<th class="tableh tabler">Professor</th>
+						<th class="tableh">Location</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td class="tablep">Peer1</td>
-						<td class="tablec">Common_class1</td>
-					</tr>
-				</tbody>
+					<?php $numpeers= count($PEers); $count= 0; ?>
+						<?php while ($count<= $numpeers): ?>
+						<tr>
+							<?php
+							$count2 = 0;
+
+							while ($count2 <= 2) {
+								print_r("<td class=\"tabler tableb\">" . $PEers[$count][$count2] . "</td>");
+								$count2= $count2 + 1;
+							}
+							?>
+						</tr>
+						<?php $count= $count+1; ?>
+						<?php endwhile ?>
+			</tbody>
+			</table>	
+			<?php else: ?>
+			<p> You have not added any friends... yet</p>
+			<?php endif; ?>
 	</body>
 </html>

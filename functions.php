@@ -1,6 +1,6 @@
 <?php
 function retrieveUserInfo() {
-	global $UniqueUser, $user_name, $EMail, $PAssword, $FirstName, $MiddleName, $LastName, $College, $Major, $Minor, $Phone_Number, $Profile_Picture, $bio, $CLasses;
+	global $UniqueUser, $user_name, $EMail, $PAssword, $FirstName, $MiddleName, $LastName, $College, $Major, $Minor, $Phone_Number, $Profile_Picture, $bio, $CLasses, $PEers;
 	$UniqueUser= $_SESSION["UserID"];
 	require 'DBconnection.php';
 	$query= mysqli_query($conn, "SELECT * FROM UserInfo WHERE UserName= '$UniqueUser'");
@@ -24,11 +24,12 @@ function retrieveUserInfo() {
 	$Profile_Picture= htmlentities($getinfo[11]);
 	$bio= htmlentities($getinfo[12]);
 	$CLasses= unserialize($getinfo[13]);
+	$PEers= unserialize($getinfo[14]);
 }
 function sessionpage() {
 	session_name("Peerphinderlogin");
 	session_start();
-	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) {
+	if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 7200)) {
 		// last page request was more than 10 minutes ago
 		session_unset();     // unset $_SESSION variable for the run-time 
 		session_destroy();   // destroy session data in storage
