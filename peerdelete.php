@@ -2,25 +2,26 @@
 require 'functions.php';
 sessionpage();
 retrieveUserInfo();
-$newfriend= $_POST['NewFriend'];
-if (empty($newfriend)) {
+$byefriend= $_POST['ByeFriend'];
+if (empty($byefriend)) {
 	die("There was an error.  Please try again" . $conn->connect_error);
 }
 require 'DBconnection.php';
 $PeerQuery= mysqli_query($conn, "SELECT Peers FROM UserInfo WHERE UserName= '$UniqueUser'");
 $Peerpull= $PeerQuery->fetch_array(MYSQLI_NUM);
 if ($Peerpull[0]== 0 OR $Peerpull[0]===NULL) {
-	$Peercheck= array();
+	die("We ran into an error retrieving your information.  Please try again" . $conn->connect_error);
 }
 else {
 	$Peercheck= unserialize($Peerpull[0]);
 }
 mysqli_close($conn);
-$numPeers= count($Peercheck);
-if (in_array($newfriend, $Peercheck)) {
-	die("You are already friends with this person");
+$numpeers= count($Peercheck);
+$count=0;
+while ($count<= $Peercheck) {
+	$search= array_search($byefriend, $Peercheck);
+	unset($Peercheck[$search]);
 }
-array_push($Peercheck, $newfriend);
 $serialized= serialize($Peercheck);
 require 'DBconnection.php';
 if ((mysqli_query($conn, "UPDATE UserInfo SET Peers='$serialized' WHERE UserName='$UniqueUser'")) ===TRUE){
@@ -31,7 +32,6 @@ if ((mysqli_query($conn, "UPDATE UserInfo SET Peers='$serialized' WHERE UserName
 	else {
 		header("Location: https://web125.secure-secure.co.uk/peerphinder.com/Peers.php");
 	}
-	//$_SERVER['HTTP_REFERER'] finds out the user's last url... this allows us to return them to the search page or the peers.php page depending on where they made the change to their friend list.
 }
 else {
 	die("There was an error connecting to the database please try again" . $conn->connect_error);

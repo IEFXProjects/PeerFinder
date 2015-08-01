@@ -4,13 +4,11 @@ sessionpage();
 retrieveUserInfo();
 
 $CRN= $_POST[CRN];
-print_r($CRN);
-if (!(ctype_digit('$CRN'))) {
-	print_r($CRN);
-	die($CRN);
+if (!(ctype_digit($CRN))) {
+	die("CRN needs to be composed of only numbers. You inputed:  " . $CRN);
 }
-if (strlen('$CRN') != 7) {
-	die("CRN needs to be 7 numbers long");
+if (strlen($CRN) != 7) {
+	die("CRN needs to be 7 numbers long. You inputed " . strlen($CRN));
 }
 require 'DBconnection.php';
 
@@ -18,24 +16,29 @@ $CRN=mysqli_real_escape_string($conn, $CRN);
 
 $Classquery=mysqli_query($conn, "SELECT Classes FROM UserInfo WHERE UserName= '$UniqueUser'");
 $CRNcheck= $Classquery->fetch_array(MYSQLI_NUM);
-$numClasses= mysqli_num_rows($CRNcheck);
 mysqli_close($conn);
 $pulledClass= unserialize($CRNcheck[0]);
 
 $count=0;
 $length= count($pulledClass);
+$falses= array();
 while ($count < $length) {
 	$search= array_search($CRN, $pulledClass[$count]);
-	if ($search === FALSE) {
-		die("We were unable to find a class with that CRN code. Please check the table and match the CRN column code with the class you would like to delete");
+	if(!($search === FALSE)){
+		unset($pulledClass[$count]);
+		break;
+		//break ends the while loop so that it only deletes one class with that CRN code rather than all duplicates.  The insert function should not let duplicates into the database, but this is a good time to double check.
 	}
 	else {
-		unset($pulledClass[$count]);
+		array_push($falses, $count);
 	}
 	$count=$count+1;
 }
+if (count($falses)== $length) {
+		die("We were unable to find a class with that CRN code. Please check the table and match the CRN column's code with the class you would like to delete");
+}
 $serializedClass=serialize($pulledClass);
-require 'DBconnection';
+require 'DBconnection.php';
 if ($conn->query("UPDATE UserInfo SET Classes='$serializedClass' WHERE UserName='$UniqueUser'")=== TRUE) {
 	mysqli_close($conn);
 	header("Location: https://web125.secure-secure.co.uk/peerphinder.com/classinput.php");

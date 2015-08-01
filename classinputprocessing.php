@@ -10,10 +10,10 @@ $Professor=$_POST[Professor];
 $Location=$_POST[Location];
 
 if (!(ctype_digit($CRN))) {
-	die("CRN needs to be composed of numbers");
+	die("CRN needs to be composed of only numbers. You inputed:  " . $CRN);
 }
 if (strlen($CRN) != 7) {
-	die("CRN needs to be 7 numbers long");
+	die("CRN needs to be 7 numbers long. You inputed " . strlen($CRN));
 }
 require 'DBconnection.php';
 

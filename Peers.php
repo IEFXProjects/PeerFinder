@@ -25,29 +25,43 @@ retrieveUserInfo();
 		<div id="pagehead">
 			<a href="search.php" id="findpeers">Click here to find your peers</a>
 		</div>
-		<div id="table">
-						<?php if ($PEers != 0): ?>
+		<div id="table"><?php $PEers= array_filter($PEers); ?>
+						<?php if (!empty($PEers)): ?>
 			<table>
 				<thead>
 					<tr>
-						<th class="tableh tabler">Class</th>
-						<th class="tableh tabler">Time</th>
-						<th class="tableh tabler">Professor</th>
-						<th class="tableh">Location</th>
+						<th class="tableh tabler">Username</th>
+						<th class="tableh tabler">Classes in Common</th>
 					</tr>
 				</thead>
 				<tbody>
-					<?php $numpeers= count($PEers); $count= 0; ?>
+					<?php
+					$numpeers= count($PEers); 
+					$count= 0; 
+					?>
 						<?php while ($count<= $numpeers): ?>
+						<?php
+							$peer= $SEarch[$count][0];
+							$classesincommon= $PEers[$count][1];
+						?>
 						<tr>
-							<?php
-							$count2 = 0;
-
-							while ($count2 <= 2) {
-								print_r("<td class=\"tabler tableb\">" . $PEers[$count][$count2] . "</td>");
-								$count2= $count2 + 1;
-							}
-							?>
+							<td>
+								<?php print_r($peer) ?> 
+							</td>
+							<td>
+								<?php print_r($peer)?>
+								
+								<form method="POST" action="peerdelete.php">
+									<input type="hidden" name="ByeFriend" value="<?php print_r($peer); ?>" />
+									<input type="submit" name="submit" value="Delete from my Peers list">
+								</form>
+								<!-- Must use a form to send data to script using POST -->
+							</td>
+						<!-- the above code should take the results from the search and display in the first cell the username and a button that adds the user to their peer favorites list on the peers.php tab -->
+							<td>
+								<?php $classincommonlist= implode(", ", $classesincommon); 
+								print_r($classincommonlist);?>
+							</td>
 						</tr>
 						<?php $count= $count+1; ?>
 						<?php endwhile ?>
