@@ -59,10 +59,10 @@ retrieveUserInfo();
 							<th class="tableh">Location</th>
 						</tr>
 					</thead>
-				
+				<?php if(!empty($CLasses)): ?>
 					<tbody>
 						<?php $numclasses= count($CLasses); $count= 0; ?>
-							<?php while ($count<= $numclasses): ?>
+							<?php while ($count< $numclasses): ?>
 							<tr>
 								<?php
 								$count2 = 0;
@@ -76,6 +76,9 @@ retrieveUserInfo();
 							</tr>
 							<?php $count= $count+1; ?>
 							<?php endwhile ?>
+				<?php else: ?>
+					<p> You have not added any classes yet</p>
+				<?php endif; ?>
 					</tbody>
 			</table>				
 		</div>		

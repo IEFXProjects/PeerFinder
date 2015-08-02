@@ -22,7 +22,7 @@ retrieveUserInfo();
 						<a href="logout2.php"><h3 class="tabs orange" id="logout">logout</h3></a>
 				</div>
 		</div>
-		
+		<?php if(!empty($SEarch)): ?>
 					<table>
 				<thead>
 					<tr>
@@ -36,7 +36,7 @@ retrieveUserInfo();
 
 					
 					?>
-						<?php while ($count<= $numsearchresults): ?>
+						<?php while ($count< $numsearchresults): ?>
 						<?php
 							$peer= $SEarch[$count][0];
 							$classesincommon= $SEarch[$count][1];
@@ -65,5 +65,8 @@ retrieveUserInfo();
 						<!-- The while statement is around the row tags so that the program will repeat the display code row by row until all of the seach results have been shown.  This will continue to run until the user either cancels the browser load or it finishes.  Kemraj you might want to add something where it only calculates like 100 per time and then they could click a button to show more. -->
 			</tbody>
 			</table>	
+			<?php else: ?>
+				<p>Use the search bar above to find people who are in the same classes that you are</p>
+			<?php endif; ?>
 	</body>
 </html>

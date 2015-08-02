@@ -1,17 +1,11 @@
-<?php
-require 'functions.php';
-sessionpage();
-retrieveUserInfo();
-$peer= "fishtacosyuck";
-?>
 <html>
-<?php $count=0; ?>
-<?php while($count<= count($PEers)): ?>
-<?php $peer= $PEers[$count]; ?>
-<form method="POST" action="Peeradd.php">
-	<input type="hidden" name="NewFriend" value="<?php echo $peer; ?>" />
-	   <input type="submit" name="submit" value="Add to my Peers list">
-</form>
-<?php $count= $count+1; ?>
-<?php endwhile ?>
+<head>
+</head>
+<body>
+	<form name="Photoform" action="http://peerphinder.com/test2.php" enctype="multipart/form-data" method="POST">
+	Profile Picture:
+	<input type="file" name="fileToUpload"/>
+	<input type="submit" name="submit" value="Upload"/>
+	</form>
+</body>
 </html>

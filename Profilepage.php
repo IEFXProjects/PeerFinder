@@ -46,7 +46,7 @@ retrieveUserInfo();
 			<img src="$Profile_Picture" id="ppic"/>
 			<p id="space"></p> <!-- separates -->
 			
-			<?php if ($CLasses != 0): ?>
+			<?php if (!empty($CLasses)): ?>
 			<table>
 				<thead>
 					<tr>
@@ -58,7 +58,7 @@ retrieveUserInfo();
 				</thead>
 				<tbody>
 					<?php $numclasses= count($CLasses); $count= 0; ?>
-						<?php while ($count<= $numclasses): ?>
+						<?php while ($count< $numclasses): ?>
 						<tr>
 							<?php
 							$count2 = 0;

@@ -24,7 +24,7 @@ retrieveUserInfo();
 		</div>
 		<div class="main">
 			<h1 id="mycoursesmain">My Courses</h1>
-						<?php if ($CLasses != 0): ?>
+						<?php if (!empty($CLasses)): ?>
 			<a href="classinput.php"> Click here to change your Class list</a>
 			<table>
 				<thead>
@@ -37,7 +37,7 @@ retrieveUserInfo();
 				</thead>
 				<tbody>
 					<?php $numclasses= count($CLasses); $count= 0; ?>
-						<?php while ($count<= $numclasses): ?>
+						<?php while ($count< $numclasses): ?>
 						<tr>
 							<?php
 							$count2 = 0;
@@ -55,6 +55,7 @@ retrieveUserInfo();
 			</table>	
 			<?php else: ?>
 			<p> You have not added any classes yet</p>
+			<a href="classinput.php"> Click here add your classes</a>
 			<?php endif; ?>
 		</div>
 	</body>

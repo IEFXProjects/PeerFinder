@@ -25,8 +25,8 @@ retrieveUserInfo();
 		<div id="pagehead">
 			<a href="search.php" id="findpeers">Click here to find your peers</a>
 		</div>
-		<div id="table"><?php $PEers= array_filter($PEers); ?>
-						<?php if (!empty($PEers)): ?>
+		<div id="table">
+		<?php if (!empty($PEers)): ?>
 			<table>
 				<thead>
 					<tr>
@@ -39,18 +39,16 @@ retrieveUserInfo();
 					$numpeers= count($PEers); 
 					$count= 0; 
 					?>
-						<?php while ($count<= $numpeers): ?>
+						<?php while ($count< $numpeers): ?>
 						<?php
 							$peer= $SEarch[$count][0];
 							$classesincommon= $PEers[$count][1];
 						?>
 						<tr>
 							<td>
-								<?php print_r($peer) ?> 
+								<?php print_r($peer); print_r($count); ?> 
 							</td>
 							<td>
-								<?php print_r($peer)?>
-								
 								<form method="POST" action="peerdelete.php">
 									<input type="hidden" name="ByeFriend" value="<?php print_r($peer); ?>" />
 									<input type="submit" name="submit" value="Delete from my Peers list">
@@ -67,8 +65,8 @@ retrieveUserInfo();
 						<?php endwhile ?>
 			</tbody>
 			</table>	
-			<?php else: ?>
+		<?php else: ?>
 			<p> You have not added any friends... yet</p>
-			<?php endif; ?>
+		<?php endif; ?>
 	</body>
 </html>
