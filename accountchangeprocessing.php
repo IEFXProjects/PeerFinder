@@ -32,7 +32,7 @@ mysqli_close($conn);
 require 'functions.php';
 sessionpage();
 retrieveUserInfo();
-if ($CUsername != $user_name) {
+if ($CUsername != $UniqueUser) {
 	$checkUsername = mysqli_query($conn, "SELECT UserName from UserInfo WHERE UserName = '$CUsername'");
 	if (mysqli_num_rows($checkUsername)>0) {
 		die("Username taken please try again" . $conn->connect_error);

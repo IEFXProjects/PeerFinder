@@ -24,6 +24,7 @@ retrieveUserInfo();
 
 		</div>
 		<div id="pageinfo">
+			<a href="accountsettings.php">Click here to change or update your information</a>
 			<p id="message">This page is what other users will see when they view you</p>
 			<div id="name">
 				<p class="name"><?php print_r($FirstName); ?></p>
@@ -36,10 +37,10 @@ retrieveUserInfo();
 				<a href="biochange.php" id="biochange">
 					<?php 
 						if ($bio !=0) {
-							echo "click here to make changes to your biography";
+							echo "Click here to make changes to your biography";
 						}
 						else {
-							echo "click here to add a biography!";
+							echo "Click here to add a biography!";
 						}
 					?></a>
 			</div>
