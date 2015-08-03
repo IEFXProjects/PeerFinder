@@ -21,7 +21,7 @@ function retrieveUserInfo() {
 	$Major= htmlentities($getinfo[8]);
 	$Minor= htmlentities($getinfo[9]);
 	$Phone_Number= htmlentities($getinfo[10]);
-	$Profile_Picture= htmlentities($getinfo[11]);
+	$Profile_Picture= ($getinfo[11]);
 	$bio= htmlentities($getinfo[12]);
 	$CLasses= unserialize($getinfo[13]);
 	$PEers= unserialize($getinfo[14]);
