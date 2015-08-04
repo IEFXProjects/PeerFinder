@@ -1,6 +1,6 @@
 <?php
 function retrieveUserInfo() {
-	global $UniqueUser, $user_name, $EMail, $PAssword, $FirstName, $MiddleName, $LastName, $College, $Major, $Minor, $Phone_Number, $Profile_Picture, $bio, $CLasses, $PEers;
+	global $UniqueUser, $user_name, $EMail, $PAssword, $FirstName, $MiddleName, $LastName, $College, $Major, $Minor, $Phone_Number, $Profile_Picture, $bio, $CLasses, $PEers, $SEnt, $REceived;
 	$UniqueUser= $_SESSION["UserID"];
 	require 'DBconnection.php';
 	$query= mysqli_query($conn, "SELECT * FROM UserInfo WHERE UserName= '$UniqueUser'");

@@ -2,6 +2,9 @@
 require 'functions.php';
 sessionpage();
 retrieveUserInfo();
+
+var_dump($SEnt);
+var_dump($REceived);
 ?>
 <html>
 	<header>
@@ -32,12 +35,12 @@ retrieveUserInfo();
 		</div>
 		<div id="content">
 			<div id="sent">
-				<p id="sent">Sent Mail</p>
+				<p id="sentrec">Sent Mail</p>
 				<?php if(!empty($SEnt)): ?>
 					<table>
 						<tr>
-							<th>Sent To</th>
-							<th>Message</th>
+							<th id="cells">Sent To</th>
+							<th id="cells">Message</th>
 						</tr>
 						<?php 
 						$numsent= count($SEnt);
@@ -48,9 +51,10 @@ retrieveUserInfo();
 							  $message= $SEnt[$count][1];
 						  ?>
 							<tr>
-								<td><?php print_r($peer); ?></td>
-								<td><?php print_r($message); ?></td>
+								<td id="cells"><?php print_r($peer); ?></td>
+								<td id="cells"><?php print_r($message); ?></td>
 							</tr>
+							<?php $count=$count+1; ?>
 						<?php endwhile; ?>
 					</table>
 				<?php else: ?>
@@ -59,12 +63,12 @@ retrieveUserInfo();
 				<?php endif; ?>
 			</div>
 			<div id="received">
-				<p id="received">Received Mail</p>
-				<?php if(!empty($Received)): ?>
+				<p id="sentrec">Received Mail</p>
+				<?php if(!empty($REceived)): ?>
 					<table>
 						<tr>
-							<th>Sent By</th>
-							<th>Message</th>
+							<th id="cells">Sent By</th>
+							<th id="cells">Message</th>
 						</tr>
 						<?php 
 						$numreceived= count($REceived);
@@ -75,9 +79,10 @@ retrieveUserInfo();
 							  $message= $REceived[$count][1];
 						  ?>
 							<tr>
-								<td><?php print_r($peer); ?></td>
-								<td><?php print_r($message); ?></td>
+								<td id="cells"><?php print_r($peer); ?></td>
+								<td id="cells"><?php print_r($message); ?></td>
 							</tr>
+							<?php $count=$count+1; ?>
 						<?php endwhile; ?>
 					</table>
 				<?php else: ?>

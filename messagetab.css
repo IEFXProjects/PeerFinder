@@ -4,3 +4,15 @@
 #received {
 	float: right;
 }
+table { 
+	table-layout:fixed; 
+	width:700px; 
+	word-break:normal;
+}
+#sentrec {
+	text-align: center;
+	font-size: 25px;
+}
+#cells{
+ 	border: 1px solid black;
+ }
