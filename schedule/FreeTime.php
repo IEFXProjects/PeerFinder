@@ -3,12 +3,10 @@
 	sessionpage();
 	retrieveUserInfo();
 	UserSchedule($UniqueUser);
-	$chooseActnum=$_Post[chooseActnum];
-	print_r($chooseActnum);
 	
 	$Act= array();
 	$count=0;
-	while($count<=$chooseActnum){
+	while($count<=2){
 		$variable1= "Act" . ($count+1);
 		$variable2= "time" . ($count+1);
 		$variable3= "chooseMH" . ($count+1);
@@ -17,10 +15,7 @@
 		$count=$count+1;
 	}
 	//This creates an array for each event and adds it to the multidimensional array $Act
-	var_dump($chooseActnum);
-	print_r($_POST['Act1']);
-	print_r($POST['Act2']);
-	print_r($Act);
+	var_dump($Act);
 	
 	require 'DBconnection2.php';
 	$count=0;

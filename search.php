@@ -5,73 +5,92 @@ retrieveUserInfo();
 
 
 
-
-
-
-
 if(isset($_POST[searchTerm]) AND isset($_POST[searchType])) {
-$Input= $_POST[searchTerm];
-$Radio= $_POST[searchType];
-
-
-if ($Radio != "UserName" or $Radio != "CRN"){
-	die("there was an error please try again");
-}
-if($Radio==="CRN"){
-	if (!(ctype_digit($CRN))) {
-		die("CRN needs to be composed of only numbers. You inputed:  " . $CRN);
+	$Input= $_POST[searchTerm];
+	$Radio= $_POST[searchType];
+	if ($Radio != "UserName" AND $Radio != "CRN"){
+		die("there was an error please try again");
 	}
-	if (strlen($CRN) != 7) {
-		die("CRN needs to be 7 numbers long. You inputed " . strlen($CRN));
-	}
-}
-
-$Radio=mysqli_real_escape_string($conn, $Radio);
-require 'DBconnection.php';
-$query= mysqli_query($conn, "SELECT UserName and Classes FROM UserInfo");
-$fetcharray= $query->fetch_array();
-mysqli_close($conn);
-if ($Radio==="CRN") {
-	$count=0;
-	$length= count($fetcharray[1]);
-	
-	while ($count < $length) {
-		$count2=0;
-		$results=array();
-		while($count2<$classlength) {
-				$search= array_search($Input, $fetcharray[1][$count]);
-				if (empty($search)) {
-					array_push($results, array($fetcharray[0][$count],$fetcharray[1][$search]));
-				}
-			$count2=$count2+1;
+	if($Radio==="CRN"){
+		if (!(ctype_digit($Input))) {
+			die("CRN needs to be composed of only numbers. You inputed:  " . $Input);
 		}
+		if (strlen($Input) != 7) {
+			die("CRN needs to be 7 numbers long. You inputed " . strlen($Input));
+		}
+	}
+	
+	require 'DBconnection.php';
+	$Radio=mysqli_real_escape_string($conn, $Radio);
+	$Input=mysqli_real_escape_string($conn, $Input);
 
+	$query= mysqli_query($conn, "SELECT UserName, Classes FROM UserInfo");
+	$fetcharray= mysqli_fetch_all($query, MYSQLI_NUM);
+	$numquery= mysqli_num_rows($query);
+	mysqli_close($conn);
+	$count=0;
+	while($count<$numquery) {
+		$look= $fetcharray[$count][1];
+		if(!empty($look)) {
+			$fetcharray[$count][1]= unserialize($look);
+		}	
 		$count=$count+1;
 	}
-}
-if($Radio==="UserName") {
-$results=array();
-$count=0
-while($count< count(fetcharray[0])) {
-	$search= array_search($Input, $fetcharray[0][$count]);
-	if(!empty($search)) {
-		array_push($results, array(fetcharray[0][$search], fetcharray[1]);
+	if ($Radio=="CRN") {
+		$count=0;
+		$length= count($fetcharray);
+		$Search=array();
+		while ($count < $length) {
+			$numclasses= count($fetcharray[$count][1]);
+			$count2=0;
+			while($count2<$numclasses) {
+				if(!empty($fetcharray[$count][1])) {
+					$search= array_keys($fetcharray[$count][1][$count2], $Input);
+					if (!empty($search)) {
+						$classresults=array();
+						$count6=0;
+						while($count6<$numclasses) {
+							$userclass= $fetcharray[$count][1][$count6][0];
+							array_push($classresults, $userclass);
+							$count6=$count6+1;
+						}
+						$Search[$count]=array($fetcharray[$count][0], $classresults);
+					}
+				}
+				$count2=$count2+1;
+				}
+			$count=$count+1;
+		}
+		
 	}
-	$count+1;
+	if($Radio=="UserName") {
+		$Search=array();
+		$count=0;
+		while($count< count($fetcharray)) {
+			if(!empty($fetcharray[$count][0])) {
+				$search=array();
+				if($fetcharray[$count][0]==$Input) {
+					$searchnumclasses= count($fetcharray[$count][1]);
+					$searchclasses= array();
+					$count10= 0;
+					while($count10<$searchnumclasses) {
+						$eachclass=$fetcharray[$count][1][$count10][0];
+						array_push($searchclasses, $eachclass);
+						$count10=$count10+1;
+					}
+					$Search[$count]=array($fetcharray[$count][0], $searchclasses);
+					array_push($search, $fetcharray[$count][0]);
+				}
+			}
+		$count= $count+1;
+		} 
+	}
 }
+$Search=array_values($Search);
+if ($Search=== array()) {
+	$noresults= TRUE;
 }
-}
-
-
-
-
-
-
-
-
-
-//HEY Kemraj... when you write the Search function can you please add it to the database in a serialized representation of this $SEarch= array( array(username, array(classes in common)), array(...),...)
-// If you output it like this, the code below should work for displaying the results.
+//this resets the numbering of the array... it was getting some funky numbers but this seems to fix it
 ?>
 <html>
 	<header>
@@ -90,31 +109,40 @@ while($count< count(fetcharray[0])) {
 						<a href="logout2.php"><h3 class="tabs orange" id="logout">logout</h3></a>
 				</div>
 		</div>
-		<?php if(!empty($SEarch)): ?>
+		<form method="POST" action="https://web125.secure-secure.co.uk/peerphinder.com/search.php">
+			<input type="radio" name="searchType" value="CRN" checked>search by CRN code
+			<br>
+			<input type="radio" name="searchType" value="UserName">search by UserName
+			<input type="text" placeholder="search" name="searchTerm">
+			<input type="submit" value="search">
+		</form>
+		<?php if(!empty($Search)): ?>
 					<table>
 				<thead>
-					<tr>
+					<tr><h1>
 						<th class="tableh tabler">Username</th>
-						<th class="tableh tabler">Classes in common</th>
+						<th class="tableh tabler">Add button</th>
+						<th class="tableh tabler">Classes</th>
+						</h1>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
-					$numsearchresults= count($SEarch); $count= 0; 
-
-					
+					$numsearchresults= count($Search); 
+					$count= 0;					
 					?>
 						<?php while ($count< $numsearchresults): ?>
 						<?php
-							$peer= $SEarch[$count][0];
-							$classesincommon= $SEarch[$count][1];
+							$peer= $Search[$count][0];
+							print_r($Search[$count][1]);
+							$classesincommon= implode(",", $Search[$count][1]);
 						?>
 						<tr>
 							<td>
-								<div id="Usernames"><?php print_r($peer     ) ?></div> 
-								<!-- Leave spaces in the php print_r in order to separate username from button -->
+								<div id="Usernames"><?php print_r($peer) ?></div> 
+							</td>
+							<td>
 								<div id="addPeerbutton">
-									<?php $peer= $SEarch[$count][0]; ?>
 									
 									<form method="POST" action="Peeradd.php">
 										<input type="hidden" name="NewFriend" value="<?php print_r($peer); ?>" />
@@ -125,16 +153,26 @@ while($count< count(fetcharray[0])) {
 							</td>
 						<!-- the above code should take the results from the search and display in the first cell the username and a button that adds the user to their peer favorites list on the peers.php tab -->
 							<td>
-								<?php print_r(implode(",", $classesincommon)); ?>
+								<?php 
+									print_r($classesincommon);
+								?>
 							</td>
 						</tr>
 						<?php $count= $count+1; ?>
 						<?php endwhile ?>
-						<!-- The while statement is around the row tags so that the program will repeat the display code row by row until all of the seach results have been shown.  This will continue to run until the user either cancels the browser load or it finishes.  Kemraj you might want to add something where it only calculates like 100 per time and then they could click a button to show more. -->
 			</tbody>
 			</table>	
 			<?php else: ?>
-				<p>Use the search bar above to find people who are in the same classes that you are</p>
+				<p>
+					<?php 
+						if($noresults== TRUE) {
+							print_r("We could not find any match for that.  Please ensure that you typed it correctly and try again");
+						}
+						else {
+							print_r("Use the search bar above to find people who are in the same classes that you are");
+						}
+					?>
+				</p>
 			<?php endif; ?>
 	</body>
 </html>

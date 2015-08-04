@@ -7,8 +7,8 @@
 	
 	$conn2 = new mysqli($servername, $DBusername, $DBpassword, $DBname);
 	//connects to the database based on the variables defined in the first lines
-	if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
+	if ($conn2->connect_error) {
+     die("Connection failed: " . $conn2->connect_error);
 	}
 	else {
 	}

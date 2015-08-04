@@ -25,7 +25,6 @@ function retrieveUserInfo() {
 	$bio= htmlentities($getinfo[12]);
 	$CLasses= unserialize($getinfo[13]);
 	$PEers= unserialize($getinfo[14]);
-	var_dump($getinfo);
 }
 function sessionpage() {
 	session_name("Peerphinderlogin");
