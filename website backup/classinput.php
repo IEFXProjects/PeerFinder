@@ -1,12 +1,8 @@
 <?php
-if(!isset($_COOKIE['cookie'])){
-    echo: "usercookie is not present";
-	echo: "please login";
-	header("Location: http://www.peerphinder.com"); /* Redirects browser back to index if the cookie is not present*/
-	exit();
-}
+require 'functions.php';
+sessionpage();
+retrieveUserInfo();
 ?>
-<!doctype html>
 <html>
 	<header>
 		<link type="text/css" rel="stylesheet" href="classinput.css"/>
@@ -15,13 +11,13 @@ if(!isset($_COOKIE['cookie'])){
 	<body>
 		<div id="header">
 			<h1 id="PeerPhinder">PeerPhinder</h1>
-			<img src="Pictures/PeerPhinderLogo.PNG" id="photo"/>
+			<img src="Pictures/PeerPhinderLogo.png" id="photo"/>
 				<div id="largetab">
 						<a href="mycourses.php"><h3 class="tabs blue" id="Mycourses">My Courses</h3></a>
-						<a href="peers.php"><h3 class="tabs orange" id="Peers">Peers</h3></a>
-						<a href="profilepage.php"><h3 class="tabs blue" id="Myprofile">My Profile</h3></a>
+						<a href="Peers.php"><h3 class="tabs orange" id="Peers">Peers</h3></a>
+						<a href="Profilepage.php"><h3 class="tabs blue" id="Myprofile">My Profile</h3></a>
 						<a href="aboutus.html"><h3 class="tabs orange" id="aboutus">About Us</h3></a>
-						<a href="search.html"><h3 class="tabs blue" id="search">search</h3></a>
+						<a href="search.php"><h3 class="tabs blue" id="search">search</h3></a>
 						<a href="logout2.php"><h3 class="tabs orange" id="logout">logout</h3></a>
 				</div>
 
@@ -31,17 +27,23 @@ if(!isset($_COOKIE['cookie'])){
 		<div id="enterdelete">
 			<div id="entercrn">
 				<h1>Add Class</h1>
-				<p id="message">Enter your CRN codes here<br> We will fill in the rest<br> of your class information<br>automatically<br></p>
-				<form action="classinput.py">
-				<input id="add" type="text" placeholder="CRNcode" name="CRN1">
+				<p id="message">Enter your Class Info here<p>
+				<form method="POST" action="classinputprocessing.php">
+				<input id="add" type="text" placeholder="CRNcode" name="CRN">
+				<input type="text" placeholder="ClassName" name="ClassName">
+				<input type="text" placeholder="Time" name="ClassTime">
+				<input type="text" placeholder="Professor" name="Professor">
+				<input type="text" placeholder="Location" name="Location">
 				<input type="submit" value="add">
+				</form>
 			</div>
 			<div id="deletecrn">
 				<h1>Delete Class</h1>
-				<p id="message"> Enter your CRN code here<br> We will delete<br> the class<br> from your profile</p>
-				<form action="classdelete.py">
-				<input type="text" placeholder="CRNcode" name="dCRN">
+				<p id="message"> Enter your CRN code here and we will delete the class from your profile</p>
+				<form method="POST" action="classdelete.php">
+				<input type="text" placeholder="CRNcode" name="CRN">
 				<input type="submit" value="delete">
+				</form>
 			</div>
 		</div>
 		<p class="space"></p>
@@ -57,16 +59,27 @@ if(!isset($_COOKIE['cookie'])){
 							<th class="tableh">Location</th>
 						</tr>
 					</thead>
-				
-				<tbody>
-					<tr>
-						<td class="tabler tableb">CRN1</td>
-						<td class="tabler tableb">Class1</td>
-						<td class="tabler tableb">time1</td>
-						<td class="tabler tableb">professor1</td>
-						<td class="tableb">location1</td>
-						<!-- if we cant get a program to automatically fill out the table for us, we will have to code a row for the maximum number of CRN codes somebody can have at one time -->
-					</tr>
-				</tbody>			
+				<?php if(!empty($CLasses)): ?>
+					<tbody>
+						<?php $numclasses= count($CLasses); $count= 0; ?>
+							<?php while ($count< $numclasses): ?>
+							<tr>
+								<?php
+								$count2 = 0;
+
+								while ($count2 <= 5) {
+						//Change to 4 when CRN column is not shown
+									print_r("<td class=\"tabler tableb\">" . $CLasses[$count][$count2] . "</td>");
+									$count2= $count2 + 1;
+								}
+								?>
+							</tr>
+							<?php $count= $count+1; ?>
+							<?php endwhile ?>
+				<?php else: ?>
+					<p> You have not added any classes yet</p>
+				<?php endif; ?>
+					</tbody>
+			</table>				
 		</div>		
 	</body>

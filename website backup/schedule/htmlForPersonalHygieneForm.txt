@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  
+  
+<link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+<script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <meta charset="utf-8">
+  <title>Personal Upkeep</title>
+</head>
+<body>
+  <h1>Personal Upkeep</h1>
+  <h2>Check what you'd like to include on your schedule ~ [Date]</h2>
+  
+  <!--Yes/No-->
+  <form>
+    <h4>Hygiene</h4>
+    <input type="radio" name = "Hygiene" value="yes" id = "yesHygiene" checked>Yes
+    <input type="radio" name = "Hygiene" value="no" id = "noHygiene">No
+    <br>
+  
+  <h4>Chores</h4>
+  <input type="radio" name = "Chores" value="yes" id = "yesChores" checked>Yes
+    <input type="radio" name = "Chores" value="no" id = "noChores">No
+    <br>
+  
+  <h4>Sleep</h4>
+  <input type="radio" name = "Sleep" value="yes" id = "yesSleep" checked>Yes
+    <input type="radio" name = "Sleep" value="no" id = "noSleep">No (For all the 'all-night-every-day' people)
+    <br>
+    
+  <h4>Other Tasks</h4>
+  <input type="radio" name = "OT" value="yes" id = "yesOT">Yes
+    <input type="radio" name = "OT" value="no" id = "noOT" checked>No
+    </form>
+  
+  
+  <!--Input-->
+  <h3 id = "timeSpent">How much time do you spend on:</h3>
+  
+  <form id = "hygieneForm">    
+    <span title = "Examples">Hygiene</span>? 
+    <input type = "text" name= "time" id = "hygieneInput">
+    
+    <select name="chooseMH" class="MH" id = "MHh">
+      <option selected="selected">Minute(s)</option>
+      <option>Hour(s)</option>
+    </select>
+    <p></p>
+  </form>
+  
+  <form id ="choreForm">    
+    <span title = "Examples">Chores</span>? 
+    <input type = "text" name= "time" id = "choreInput">
+  
+    <select name="chooseMH" class="MH" id = "MHc">
+      <option selected="selected">Minute(s)</option>
+      <option>Hour(s)</option>
+    </select>
+    <p></p>
+  </form>
+    
+  <form id = "sleepForm">    
+    <span title = "Examples">Flexible Sleep</span>?
+    <input type = "text" name= "time" id = "flexInput">
+  
+    <select name="chooseMH" class="MH" id = "MHflex">
+      <option selected="selected">Minute(s)</option>
+      <option>Hour(s)</option>
+    </select>
+    <p></p>
+    
+    <span title = "Examples">Fixed Sleep</span>? 
+    <input type = "text" name= "time" id = "fixedInput">
+  
+    <select name="chooseMH" class="MH" id = "MHfix">
+      <option selected="selected">Minute(s)</option>
+      <option>Hour(s)</option>
+    </select>
+    <p></p>
+  </form>
+  
+<!--Bootstrap Progress Bar-->    
+    <h4 id = "yourday">Your Day</h4><div class="progress">
+      <div class="progress-bar progress-bar-striped active" id = "bar1" style="width: 0%">
+        <span class="sr-only">35% Complete</span>
+      </div>
+      <div class="progress-bar progress-bar-warning progress-bar-striped active" id = "bar2" style="width: 0%">
+        <span class="sr-only">20% Complete</span>
+      </div>
+      <div class="progress-bar progress-bar-danger progress-bar-striped active" id = "bar3" style="width: 0%">
+        <span class="sr-only">10% Complete (danger)</span>
+  </div>
+  <div class="progress-bar progress-bar-success progress-bar-striped active" id = "bar4" style="width: 0%">
+        <span class="sr-only">10% Complete</span>
+  </div>
+</div>
+  
+    <form id = "taskFormSelect"></form>
+    <form id = "taskFormInputs"></form>
+
+    
+</body>
+</html>

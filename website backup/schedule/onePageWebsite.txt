@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Vative</title>
+<meta name="description" content="Vative app">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+</head>
+<style>
+body{
+padding-top:40px;
+}
+</style>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
+<div class="container">
+<div class="navbar-header" >
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a href="" class="navbar-brand">Vative</a>
+</div>
+<div class="collapse navbar-collapse" id="navbar-collapse">
+<a href="" class="btn btn-info navbar-btn navbar-right">Download Now</a>
+<ul class="nav navbar-nav">
+<li><a href="#Classes">Classes</a>
+<li><a href="#Homework">Homework</a>
+<li><a href="#Fitness">Fitness</a>
+<li><a href="#Work Study">Work Study</a>
+<li><a href="#Clubs">Clubs</a>
+</ul>
+</div>
+</div>
+</nav>
+<div class="jumbotron">
+<div class="container text-center">
+<h1>Schedule Optimizer</h1>
+<p>We manage your life so you don't have to.</p>
+<div class="btn-group">
+<a href="" class="btn btn-lg btn-info">Download App</a>
+<a href="" class="btn btn-lg btn-default">Who are we</a>
+<a href="" class="btn btn-lg btn-info">Peer Phinder</a>
+</div>
+</div>
+</div>
+
+<div class="container text-center">
+<section>
+<div class="page-header" id="About Us">
+<h2>
+Classes
+<small>
+</small>
+</h2>
+</div>
+<div class="row">
+<div class="col-lg-4">
+<blockquote>
+<p>Calc 241</p>
+<footer></footer>
+</blockquote>
+</div>
+<div class="col-lg-4">
+<blockquote>
+<p>Chem 101</p>
+<footer></footer>
+</blockquote>
+</div>
+<div class="col-lg-4">
+<blockquote>
+<p>Phys 211</p>
+<footer></footer>
+</blockquote>
+</div>
+</div>
+</section>
+</div>
+<section>
+<div class="well">
+<div class="container text-center">
+<h3>Enter your homework for the week!</h3>
+<p></p>
+<form action="" class="form-inline">
+<div class="form-group">
+<label for="Classes">Classes</label>
+<input type="text" class="form-control" id="subscription" placeholder="Class 1"">
+</div>
+<button type="submit" class="btn btn-default">
+Get organized
+</button>
+<hr>
+</form>
+</div>
+</div>
+</section>
+
+  <div class="container">
+    <section>
+      <div class="page-header" id="Homework">
+        ### the id has to be correct
+        <h2>
+		Homework
+          <small>
+            Let's get some work done!
+          </small>
+        </h2>
+      </div>
+      <div class="carousel slide" id="screenshot-carousel" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#screenshot-carousel" data-slide-to="0" class="active"></li>
+          <li data-target="#screenshot-carousel" data-slide-to="1"></li>
+          <li data-target="#screenshot-carousel" data-slide-to="2"></li>
+          <li data-target="#screenshot-carousel" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner">
+      <div class="item active">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Silego_clock_generator.JPG" alt="">
+          </div>
+          <img src="" alt="">
+          </div>
+        <img src="" alt="">
+          </div>
+      <img src="" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+</div>
+<script src="http://code.jquery.com/jquery-2.1.1min.js" 
+</script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>

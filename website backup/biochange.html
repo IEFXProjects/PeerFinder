@@ -1,30 +1,45 @@
-<?php
-if(!isset($_COOKIE['cookie'])){
-    echo: "usercookie is not present";
-	echo: "please login";
-	header("Location: http://www.peerphinder.com"); /* Redirects browser back to index if the cookie is not present*/
-	exit();
-}
-?>
-<!DOCTYPE HTML>
 <html>
 	<head>
+		<script src="textediorfunctions.js"></script>
 		<link type="text/css" rel="stylesheet" href="tabs.css"/>
 		<title> Edit Biography </title>
 	</head>
-	<body>
-	<div id="header">
-			<h1 id="PeerPhinder">PeerPhinder</h1>
-			<img src="Pictures/PeerPhinderLogo.png" id="photo"/>
-				<div id="largetab">
-						<a href="mycourses.html"><h3 class="tabs blue" id="Mycourses">My Courses</h3></a>
-						<a href="peers.html"><h3 class="tabs orange" id="Peers">Peers</h3></a>
-						<a href="Profilepage.html"><h3 class="tabs blue" id="Myprofile">My Profile</h3></a>
-						<a href="aboutus.html"><h3 class="tabs orange" id="aboutus">About Us</h3></a>
-						<a href="search.html"><h3 class="tabs blue" id="search">search</h3></a>
-						<a href="logout2.php"><h3 class="tabs orange" id="logout">logout</h3></a>
-				</div>
+	<body onLoad="iFrameOn();">
+		<div id="header">
+				<h1 id="PeerPhinder">PeerPhinder</h1>
+				<img src="Pictures/PeerPhinderLogo.png" id="photo"/>
+					<div id="largetab">
+							<a href="mycourses.php"><h3 class="tabs blue" id="Mycourses">My Courses</h3></a>
+							<a href="Peers.php"><h3 class="tabs orange" id="Peers">Peers</h3></a>
+							<a href="Profilepage.php"><h3 class="tabs blue" id="Myprofile">My Profile</h3></a>
+							<a href="aboutus.html"><h3 class="tabs orange" id="aboutus">About Us</h3></a>
+							<a href="search.php"><h3 class="tabs blue" id="search">search</h3></a>
+							<a href="logout2.php"><h3 class="tabs orange" id="logout">logout</h3></a>
+					</div>
 
 		</div>
+		<form action="bioupdate.php" name="myform" id="myform" method="post">
+		<p>Entry Title: <input name="title" id="title" type="text" size="80" maxlength="80" /></p>
+		<p>Entry Body:<br>
+		<div id="wysiwyg_cp" style="padding:8px; width:700px;">
+		  <input type="button" onClick="iBold()" value="B"> 
+		  <input type="button" onClick="iUnderline()" value="U">
+		  <input type="button" onClick="iItalic()" value="I">
+		  <input type="button" onClick="iFontSize()" value="Text Size">
+		  <input type="button" onClick="iForeColor()" value="Text Color">
+		  <input type="button" onClick="iHorizontalRule()" value="HR">
+		  <input type="button" onClick="iUnorderedList()" value="UL">
+		  <input type="button" onClick="iOrderedList()" value="OL">
+		  <input type="button" onClick="iLink()" value="Link">
+		  <input type="button" onClick="iUnLink()" value="UnLink">
+		  <input type="button" onClick="iImage()" value="Image">
+		</div>
+		<!-- Hide(but keep)your normal textarea and place in the iFrame replacement for it -->
+		<textarea style="display:none;" name="myTextArea" id="myTextArea" cols="100" rows="14"></textarea>
+		<iframe name="richTextField" id="richTextField" style="border:#000000 1px solid; width:700px; height:300px;"></iframe>
+		<!-- End replacing your normal textarea -->
+		</p>
+		<br /><br /><input name="myBtn" type="button" value="Submit Data" onClick="javascript:submit_form();"/>
+		</form>
 	</body>
 </html>

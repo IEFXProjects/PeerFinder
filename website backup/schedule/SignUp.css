@@ -1,0 +1,30 @@
+body{
+  margin:40px 0;
+  background:#203542;
+  font-size:1.3em;
+  font-family:sans-serif;
+}
+br{
+  text-align:center;
+  float:right;
+}
+form{
+  text-align:center;
+}
+input{
+  text-align:center;
+}
+h1{
+  text-align:center;
+}
+div{
+   width:100px;height:100px;border-radius:50px;font-size:20px;color:#fff;line-height:100px;text-align:center;background:#000
+  margin:10px;
+  background:#70968C;
+  color:#FFF;
+  margin:auto;
+  
+}
+div:hover{
+  opacity:0.2;
+}
