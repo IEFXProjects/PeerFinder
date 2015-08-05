@@ -25,7 +25,7 @@ $Location=mysqli_real_escape_string($conn, $Location);
 
 $Classquery=mysqli_query($conn, "SELECT Classes FROM UserInfo WHERE UserName= '$UniqueUser'");
 $CRNcheck= $Classquery->fetch_array(MYSQLI_NUM);
-$numClasses= mysqli_num_rows($CRNcheck);
+$numClasses= mysqli_num_rows($Classquery);
 mysqli_close($conn);
 
 if ($pulledClass= unserialize($CRNcheck[0])) {
@@ -44,26 +44,6 @@ if ($pulledClass= unserialize($CRNcheck[0])) {
 	$Class= array($CRN, $ClassName, $Time, $Professor, $Location);
 	$pulledClass[$length]= $Class;
 	//this adds the new array to the end of the current array
-	/*
-	$temp2=array();
-	foreach($pulledClass as $temp){
-		if (array_search($CRN, $temp) === FALSE) {
-			unset($temp);
-			die("array_search returned False");
-		}
-		else {
-			array_merge($temp2, $pulledClass[array_search($CRN, $temp)]);
-			unset($temp);
-		}
-	}
-	//Searches the inner arrays for the correct value
-	foreach($temp2 as $temp){
-		if ($temp !== FALSE) {
-			die("Class already exists please delete it first or use the tool below to update" . $conn->connect_error);
-		}
-	}
-	//searches the overall array for the correct arrays.
-	*/
 }
 else {
 	$Class= array($CRN, $ClassName, $Time, $Professor, $Location);

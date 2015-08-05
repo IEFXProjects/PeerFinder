@@ -26,11 +26,13 @@ while ($count < $length) {
 	$search= array_search($CRN, $pulledClass[$count]);
 	if(!($search === FALSE)){
 		unset($pulledClass[$count]);
+		$pulledClass=array_values($pulledClass);
 		break;
 		//break ends the while loop so that it only deletes one class with that CRN code rather than all duplicates.  The insert function should not let duplicates into the database, but this is a good time to double check.
 	}
 	else {
 		array_push($falses, $count);
+		$falses=array_values($falses);
 	}
 	$count=$count+1;
 }

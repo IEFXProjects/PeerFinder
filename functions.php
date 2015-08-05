@@ -9,8 +9,16 @@ function retrieveUserInfo() {
 	}
 	$getinfo= $query->fetch_array();
 	mysqli_close($conn);
-	if ($getinfo) {
-	}
+	
+	
+	$getinfo[13]=array_values($getinfo[13]);
+	$getinfo[14]=array_values($getinfo[14]);
+	$getinfo[15]=array_values($getinfo[15]);
+	$getinfo[16]=array_values($getinfo[16]);
+	
+	
+	
+	
 	$user_name= htmlentities($getinfo[1]);
 	$EMail= htmlentities($getinfo[2]);
 	$PAssword= htmlentities($getinfo[3]);
