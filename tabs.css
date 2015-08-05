@@ -1,27 +1,44 @@
 html {
-	background: url("Pictures/Paper_Background.jpg") no-repeat center center;
+	/*background: url("Pictures/Paper_Background.jpg") no-repeat center center;
 	background-size: cover;
 	height: 110%;
-	margin: 25px;
+	margin: 25px; */
+	
+	background: url("../PeerFinder/Pictures/Paper_Background.jpg") no-repeat center center;
+-moz-background-size: cover;
+-webkit-background-size: cover;
+background-size: cover;
+background-position: top center !important;
+background-repeat: no-repeat !important;
+background-attachment: fixed;
+}
 }
 #header {
 	margin-bottom: 2em;
 	margin-top: 7em;
 	white-space: nowrap;
 }
-.orange{background-color:#FF6600;}
-.blue{background-color: #0033FF}
+
+.bgreen{background-color:#20B2AA;}
+.red{background-color:#DC143C;}
+.yellow{background-color: #FFFF80;}
+.orange{background-color: #FF4500;}
+.blue{background-color: #0066FF;}
+.green{background-color: #33CC33;}
 #photo {
 	float: left;
 	padding-left: 0em;
 	height: 8em;
 	padding-bottom: 0;
 	padding-top: .5em;
+	margin-top: 95px;
+
 }
 #PeerPhinder {
 	clear: left;
 	font-size: 2em;
 	display: none;
+	
 	}
 .tabs {
 	display: inline-block;
@@ -31,7 +48,7 @@ html {
 	border-radius: 10px;
 	padding: 5px;
 	bottom: 0;
-	margin-top: 3em;
+	margin-top: 5em;
 	text-decoration: bold;
 	color: black;
 	font-size: 2em;
