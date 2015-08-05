@@ -45,7 +45,7 @@ retrieveUserInfo();
 						}
 					?></a>
 			</div>
-			<img src="$Profile_Picture" id="ppic"/>
+			<img id="ProfilePicture" src="https://web125.secure-secure.co.uk/peerphinder.com/Pictures/UserPictureUploads/<?php print_r($UniqueUser); print_r($Profile_Picture); ?>">
 			<p id="space"></p> <!-- separates -->
 			
 			<?php if (!empty($CLasses)): ?>
