@@ -68,27 +68,30 @@ if(isset($_POST[searchTerm]) AND isset($_POST[searchType])) {
 		$count=0;
 		while($count< count($fetcharray)) {
 			if(!empty($fetcharray[$count][0])) {
-				$search=array();
 				if($fetcharray[$count][0]==$Input) {
-					$searchnumclasses= count($fetcharray[$count][1]);
-					if($searchnumclasses==0) {
-						$Search[$count]= array($fetcharray[$count][0], array("This person has not added any classes yet"));
+					if(is_array($fetcharray[$count][1])) {
+						$searchnumclasses= count($fetcharray[$count][1]);
+						if($searchnumclasses==0) {
+							$Search[$count]= array($fetcharray[$count][0], array("This person has not added any classes yet"));
+						}
+						else{
+							$searchclasses= array();
+							$count10= 0;
+							while($count10<$searchnumclasses) {
+								$eachclass=$fetcharray[$count][1][$count10][0];
+								array_push($searchclasses, $eachclass);
+								$count10=$count10+1;
+							}
+							$Search[$count]=array($fetcharray[$count][0], $searchclasses);
+						}
 					}
 					else{
-						$searchclasses= array();
-						$count10= 0;
-						while($count10<$searchnumclasses) {
-							$eachclass=$fetcharray[$count][1][$count10][0];
-							array_push($searchclasses, $eachclass);
-							$count10=$count10+1;
-						}
-						$Search[$count]=array($fetcharray[$count][0], $searchclasses);
-						array_push($search, $fetcharray[$count][0]);
+						$Search[$count]=array($fetcharray[$count][0], array());
 					}
 				}
 			}
 		$count= $count+1;
-		} 
+		}
 	}
 }
 $Search=array_values($Search);
@@ -140,7 +143,6 @@ if ($Search=== array()) {
 						<?php while ($count< $numsearchresults): ?>
 						<?php
 							$peer= $Search[$count][0];
-							print_r($Search[$count][1]);
 							$classesincommon= implode(",", $Search[$count][1]);
 						?>
 						<tr>

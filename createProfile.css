@@ -1,7 +1,11 @@
 html {
 	background: url("Pictures/Paper_Background.jpg") no-repeat center center;
 	
+<<<<<<< HEAD
 		-moz-background-size: cover;
+=======
+	-moz-background-size: cover;
+>>>>>>> 4c44799eec05991adfaac4e396773e42b83d5558
 -webkit-background-size: cover;
 background-size: cover;
 background-position: top center;
@@ -36,7 +40,10 @@ background-attachment: fixed;
     margin-left:195px;
     z-index: -1;
 }
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 4c44799eec05991adfaac4e396773e42b83d5558
 #tab {
 	position: absolute;
 	float:left;
@@ -60,3 +67,22 @@ background-attachment: fixed;
     margin-left:30px;
     z-index: 5;
 }
+<<<<<<< HEAD
+=======
+#Peerphinder {
+  position: fixed;
+  left: 40%;
+  top: 5%;
+  transform: translate(-50%, -50%);
+  /*margin: 0px 0px 20px 0px;*/
+
+	font-family: Boulder, Calibri, sarif;
+	/*text-align: center;	*/
+	font-size: 2em;
+	clear: above;
+}
+div {
+	margin: 30px 0px 0px 0px;
+	text-align: center;
+}
+>>>>>>> 4c44799eec05991adfaac4e396773e42b83d5558
