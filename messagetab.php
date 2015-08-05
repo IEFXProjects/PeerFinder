@@ -2,9 +2,6 @@
 require 'functions.php';
 sessionpage();
 retrieveUserInfo();
-
-var_dump($SEnt);
-var_dump($REceived);
 ?>
 <html>
 	<header>

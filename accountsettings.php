@@ -11,6 +11,7 @@
 ?>
 <html>
 <head>
+	<link type="text/css" rel="stylesheet" href="accountsettings.css"/>
 </head>
 <body>
 	<h3>Use the input boxes next to your Information to change it.</h3>
@@ -25,7 +26,7 @@
 		<form name="Photoform" action="https://web125.secure-secure.co.uk/peerphinder.com/PhotoUpload.php" enctype="multipart/form-data" method="POST">
 			Profile Picture:
 			<?php if($Profile_Picture !== "NULL"):?>
-				<img src="Pictures/UserPictureUploads/<?php print_r($UniqueUser); print_r($Profile_Picture); ?>"><br>
+				<img id="ProfilePicture" src="https://web125.secure-secure.co.uk/peerphinder.com/Pictures/UserPictureUploads/<?php print_r($UniqueUser); print_r($Profile_Picture); ?>"><br>
 				<?php
 				
 				if($confirmation=="1") {
