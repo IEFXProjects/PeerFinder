@@ -24,7 +24,8 @@ background-attachment: fixed;
 .yellow{background-color: #FFFF80;}
 .orange{background-color: #FF4500;}
 .blue{background-color: #0066FF;}
-.green{background-color: #33CC33;}
+.green{background-color: #DB94FF;}
+.messagecolor{background-color: #33CC33;}
 #photo {
 	float: left;
 	padding-left: 0em;
@@ -56,4 +57,8 @@ background-attachment: fixed;
 	}
 #largtab {
 	float: left;
+}
+#ProfilePicture {
+	width: 200px;
+	height: 200px;
 }
