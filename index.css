@@ -78,7 +78,7 @@ li {
 /* trying to get the tab background*/ 
 
 #liltab {
-	position: fixed;
+	position: static;
 	border-radius: 15px;
 	height: 70px;
 	width: 170px;
@@ -89,7 +89,7 @@ li {
     margin-left:25px;
     }
 #liltab2 {
-	position: fixed;
+	position: static;
 	border-radius: 15px;
 	height: 70px;
 	width: 170px;
@@ -101,7 +101,7 @@ li {
 }
 	
 #tab {
-	position: fixed;
+	position: static;
 	float:left;
 	border-radius: 15px;
     height: 500px;
