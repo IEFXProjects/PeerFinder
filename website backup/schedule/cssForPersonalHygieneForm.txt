@@ -1,0 +1,48 @@
+*{
+  text-align: center;
+  margin: auto;
+}
+
+body{
+  background-color: #ffefdb;
+}
+
+input[name="time"]{
+  width: 40px;
+}
+
+input[class="tasks"]{
+  text-align: left;
+}
+
+h1{
+  text-align: center;
+}
+
+h4{
+  display: inline-block;
+}
+
+h5{
+  display: inline-block;
+  font-size: 20px;
+}
+
+
+br{
+  height: 100px;
+}
+
+.progress{
+  width: 1300px;
+  margin: auto;
+}
+
+
+#numTasks{
+  width: 40px;
+}
+
+.taskName{
+  margin: auto;
+}

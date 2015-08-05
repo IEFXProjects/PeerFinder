@@ -1,0 +1,93 @@
+  .money{
+  margin:0px;
+  background:#203542;
+  font-size:1.3em;
+  font-family:sans-serif;
+  height: 750px;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;  
+  background-color: #636368;
+  overflow: hidden; 
+  }
+
+a{
+  text-align: center;
+  width:150px;
+  font-weight: bold;
+  font-family: Arial;
+  color:white;
+  text-decoration:none;
+}
+
+a:active {
+color: black;
+/*change color later*/}
+
+a:hover {
+color: #9D9DA6;
+}
+
+.nav{
+color:white;
+}
+
+.work{
+  display: inline;
+  float: left;
+  margin-left: 100px;
+  color:white;
+} 
+
+
+*{
+  text-align: center;
+  margin: auto;
+}
+
+body{
+  background-color: #ffefdb;
+}
+
+input[name="time"]{
+  width: 40px;
+}
+
+input[class="tasks"]{
+  text-align: left;
+}
+
+h1{
+  text-align: center;
+}
+
+h4{
+  display: inline-block;
+}
+
+h5{
+  display: inline-block;
+  font-size: 20px;
+}
+
+
+br{
+  height: 100px;
+}
+
+.progress{
+  width: 1300px;
+  margin: auto;
+}
+
+
+#numTasks{
+  width: 40px;
+}
+
+.taskName{
+  margin: auto;
+}

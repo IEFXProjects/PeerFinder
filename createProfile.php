@@ -74,9 +74,13 @@
 	//pushes refined data to database table based on header values
 
 	if ($conn->query($sql) === TRUE) {
-		echo "New record created successfully";
+		mysqli_close($conn);
+		require 'functions.php';
+		sessionpage();
+		$_SESSION["UserID"]= $username;
+		header ("Location: https://web125.secure-secure.co.uk/peerphinder.com/Profilepage.php");
 	} else {
-		echo "Error: " . $sql . "<br>" . $conn->error;
+		die("Error: " . $sql . "<br>" . $conn->connect_error);
 	}
 
 	mysqli_close($conn);

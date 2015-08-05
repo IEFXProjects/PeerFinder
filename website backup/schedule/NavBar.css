@@ -1,0 +1,37 @@
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;  
+  background-color: #636368;
+  overflow: hidden;
+  
+}
+
+li{
+  display: inline;
+  float: left;
+  margin-left: 40px;
+  color:white;
+}
+
+a{
+  text-align: center;
+  
+  width:150px;
+  font-weight: bold;
+  font-family: Arial;
+  color:white;
+  text-decoration:none;
+}
+
+a:active {
+color: black;
+/*change color later*/
+
+.nav{
+color:white;
+}
+
+
+
+

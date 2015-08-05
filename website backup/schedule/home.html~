@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>JS Bin</title>
+  <link type="text/css" rel="stylesheet" href="home.css">
+</head>
+<body>
+<!--Navbar-->
+  <ul class="nav">
+  	<li class="work"><a href="home.html"><img src="HomeReal.png" alt="Home" width="30px" height="30px"></li></a>
+    <li class="work"><a href="Classes.html"<div>Classes</div></a></li>
+    <li class="work"><a href="FoodSurvey.html"><div>Food</div></a></li>
+    <li class="work"><a href="FreeSurvey.html"<div>Free Time</div></a></li>
+    <li class="work"><a href="Transportation.html"><div>Transportation</div></a></li>
+    <li class="work"><a href="Work.html"<div>Work</div></a></li>
+    <li class="work"><a href="htmlForPersonalHygieneForm.html"><div>Hygiene</div></a></li>
+  </ul>
+ <!--End of Navbar-->
+  <div class="money">
+<div class="tableContainer">
+<!--This is the table for the to do list--> 
+<table style="display: inline-block;">
+<tr>
+<th>Today's To Do List</th>
+</tr>
+<tr>
+</ul>
+<td><li>Have Vative Meeting</li></td>
+</tr>
+<tr>
+<td><li>Connect PHP for FreeSurvey.html</li></td>
+</tr>
+<tr>
+<td><li>After submit FreeTimeSurvey info, link it to the home page.</li></td>
+</tr>
+</ul>
+</table>
+
+<!--End of the table-->
+
+<!--Beginning of Have Done table-->
+<table style="display: inline-block;">
+<tr>
+<th>Have Done List</th>
+</tr>
+<tr>
+</ul>
+<td><li>Completed PHP for FreeTimeSurvey.html</li></td>
+</tr>
+<tr>
+<td><li>Finish PHP for FreeSurvey.html</li></td>
+</tr>
+<tr>
+<td><li>After submit FreeTimeSurvey info, link it to the home page.</li></td>
+</tr>
+</ul>
+</table>
+<!--End of Have Done Table-->
+</div>
+<!--End of tableContainer-->
+</div>
+<iframe src="https://www.google.com/calendar/embed?src=sanchezjacob244%40gmail.com&ctz=America/Chicago" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+
+
+</body>
+</html>
