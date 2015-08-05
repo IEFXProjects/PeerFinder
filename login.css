@@ -28,3 +28,51 @@ input {
 form {
 	text-align: right;
 }
+#liltab {
+	position: absolute;
+	border-radius: 15px;
+	height: 70px;
+	width: 170px;
+	background-color: #20B2AA;
+	margin-top: -70px;
+    margin-bottom: 1000px
+    margin-right: 0px;
+    margin-left:-695px;
+    z-index: -1;
+    }
+#liltab2 {
+	position: absolute;
+	border-radius: 15px;
+	height: 70px;
+	width: 170px;
+	background-color: #DC143C;
+	margin-top: -70px;
+    margin-bottom: 1000px
+    margin-right: 0px;
+    margin-left:-525px;
+    z-index: -1;
+}
+
+#tab {
+	position: absolute;
+	float:left;
+	border-radius: 15px;
+    height: 90%;
+    width: 96.5%;
+    background-color: #20B2AA;
+    margin-top: -30px;
+    margin-bottom: 10px
+    margin-right: 0px;
+    margin-left:-695px;
+    z-index: -1;
+	}
+#vative {
+	position: absolute;
+	height: 60px;
+	width: 150px;
+	margin-top: -60px;
+    margin-bottom: 1000px
+    margin-right: 0px;
+    margin-left:-690px;
+    z-index: 5;
+}
