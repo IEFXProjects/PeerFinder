@@ -8,8 +8,8 @@ html {
 -moz-background-size: cover;
 -webkit-background-size: cover;
 background-size: cover;
-background-position: top center !important;
-background-repeat: no-repeat !important;
+background-position: top center;
+background-repeat: no-repeat;
 background-attachment: fixed;
 }
 }
