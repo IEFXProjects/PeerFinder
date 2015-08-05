@@ -9,14 +9,12 @@ function retrieveUserInfo() {
 	}
 	$getinfo= $query->fetch_array();
 	mysqli_close($conn);
-	
-	
-	$getinfo[13]=array_values($getinfo[13]);
-	$getinfo[14]=array_values($getinfo[14]);
-	$getinfo[15]=array_values($getinfo[15]);
-	$getinfo[16]=array_values($getinfo[16]);
-	
-	
+	function arraysort($array) {
+		if(!empty($array)) {
+			$array= array_values($array);
+		}
+		return $array;
+	}
 	
 	
 	$user_name= htmlentities($getinfo[1]);
@@ -31,10 +29,10 @@ function retrieveUserInfo() {
 	$Phone_Number= htmlentities($getinfo[10]);
 	$Profile_Picture= ($getinfo[11]);
 	$bio= htmlentities($getinfo[12]);
-	$CLasses= unserialize($getinfo[13]);
-	$PEers= unserialize($getinfo[14]);
-	$SEnt=unserialize($getinfo[15]);
-	$REceived=unserialize($getinfo[16]);
+	$CLasses= arraysort(unserialize($getinfo[13]));
+	$PEers= arraysort(unserialize($getinfo[14]));
+	$SEnt=arraysort(unserialize($getinfo[15]));
+	$REceived=arraysort(unserialize($getinfo[16]));
 }
 function sessionpage() {
 	session_name("Peerphinderlogin");
