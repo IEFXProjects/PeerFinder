@@ -12,16 +12,40 @@ if(!empty($PEers)) {
 		$fetch= mysqli_fetch_array($query);
 		$fetch=array_values($fetch);
 		$fetch= $fetch[0];
+		$fetch=unserialize($fetch);
 		$friendClasses[$value][0]= $key;
-		foreach($fetch as $value2=>$key2) {
-			$friendCRN= $fetch[$value2][0];
-			$friendClassName= $fetch[$value2][1];
-			$friendClasses[$value][1][$value2]= array($friendCRN, $friendClassName);
+		if(is_array($fetch)) {
+			foreach($fetch as $value2=>$key2) {
+				$friendCRN= $fetch[$value2][0];
+				$friendClassName= $fetch[$value2][1];
+				$friendClasses[$value][1][$value2]= array($friendCRN, $friendClassName);
+			}
+		}
+		else {
+			$friendClasses[$value][1]= array();
 		}
 	}
 	//the above double foreach statement finds the user that you are friends with and pulls his/her latest Class information and places it into an array structure
 	//friendClasses= array( eachuserarray( Username, array(class(friendCRN, friendClassname), newclass(...,...),...)), ...)
 }
+
+$userCRN=array();
+if(!empty($CLasses)) {
+	$count3=0;
+	$numuserclasses= count($CLasses);
+	while($count3<$numuserclasses) {
+		if(isset($CLasses[$count3][0])) {
+			array_push($userCRN, $CLasses[$count3][0]);
+			$userCRN=array_values($userCRN);
+			$count3=$count3+1;
+		}
+	}
+}
+//the above code needs to give an array of all of the user's CRNs by themeselves so that we can compare with peers list and highlight below
+
+
+
+
 ?>
 <html>
 	<head>
@@ -49,6 +73,7 @@ if(!empty($PEers)) {
 		</div>
 		<div id="table">
 		<?php if (!empty($PEers)): ?>
+			<p id="highlight"><FONT style="BACKGROUND-COLOR: yellow">Highlighted Classes</FONT> are the ones you have in common</p>
 			<table>
 				<thead>
 					<tr>
@@ -85,7 +110,12 @@ if(!empty($PEers)) {
 									$numpeerclasses= count($friendClasses[$count][1]);
 									$classdisplayarray=array();
 									while($count2<$numpeerclasses) {
-										$classdisplayarray[$count2]= $friendClasses[$count][1][$count2][1] . '(' . $friendClasses[$count][1][$count2][0] . ')';
+										if (in_array($friendClasses[$count][1][$count2][0], $userCRN)) {
+											$classdisplayarray[$count2]= "<FONT style=\"BACKGROUND-COLOR: yellow\">" . $friendClasses[$count][1][$count2][1] . "</FONT>" . '(' . $friendClasses[$count][1][$count2][0] . ')';
+										}
+										else {
+											$classdisplayarray[$count2]= $friendClasses[$count][1][$count2][1] . '(' . $friendClasses[$count][1][$count2][0] . ')';
+										}
 										$count2=$count2+1;
 									}
 									//the above while loop creates an array with each value being Class Name(CRN code)
@@ -103,4 +133,6 @@ if(!empty($PEers)) {
 			<p> You have not added any friends... yet</p>
 		<?php endif; ?>
 	</body>
+	
+	<!--<FONT style="BACKGROUND-COLOR: yellow">next </FONT> -->
 </html>
