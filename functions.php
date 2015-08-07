@@ -28,7 +28,7 @@ function retrieveUserInfo() {
 	$Minor= htmlentities($getinfo[9]);
 	$Phone_Number= htmlentities($getinfo[10]);
 	$Profile_Picture= ($getinfo[11]);
-	$bio= htmlentities($getinfo[12]);
+	$bio= html_entity_decode(json_decode($getinfo[12]));
 	$CLasses= arraysort(unserialize($getinfo[13]));
 	$PEers= arraysort(unserialize($getinfo[14]));
 	$SEnt=arraysort(unserialize($getinfo[15]));

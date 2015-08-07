@@ -7,6 +7,7 @@ retrieveUserInfo();
 	<head>
 		<script src="texteditorfunctions.js"></script>
 		<link type="text/css" rel="stylesheet" href="tabs.css"/>
+		<link type="text/css" rel="stylesheet" href="biochange.css"/>
 		<title> Edit Biography </title>
 	</head>
 	<body onLoad="iFrameOn();">
@@ -40,7 +41,7 @@ retrieveUserInfo();
 		<textarea style="display:none;" name="myTextArea" id="myTextArea" cols="100" rows="14">
 			<?php
 				if ($bio != 0) {
-					echo $bio;
+					print_r($bio);
 				}		
 			?>
 		</textarea>
@@ -49,5 +50,9 @@ retrieveUserInfo();
 		</p>
 		<br /><br /><input name="myBtn" type="button" value="Submit Data" onClick="javascript:submit_form();"/>
 		</form>
+		<div id="cbio">
+		<h3 id="cbiohead">Your Current Biography</h3>
+		<div id="cbiotext"><?php print_r($bio);?></div>
+		</div>
 	</body>
 </html>

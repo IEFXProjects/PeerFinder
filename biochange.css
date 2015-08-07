@@ -1,0 +1,17 @@
+#cbiotext {
+	height: auto;
+	padding-right: 2em;
+	width: auto;
+	border: 1px solid black;
+	}
+#cbiohead {
+	text-align: center;
+}
+#cbio {
+	float: right;
+	clear: right;
+	padding-right: 30px;
+}
+form {
+	float: left;
+}

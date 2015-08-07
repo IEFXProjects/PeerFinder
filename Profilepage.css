@@ -21,6 +21,10 @@
 
 #biotext {
 	height: auto;
+	padding-right: 2em;
+	width: auto;
+	min-width: 400px;
+	border: 1px solid black;
 	}
 #space {
 	display: block;

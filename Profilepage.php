@@ -35,7 +35,7 @@ retrieveUserInfo();
 			</div>
 			<div id="biography">
 				<p> biography</p>
-				<p id="biotext"><?php echo $bio;?></p>
+				<div id="biotext"><?php print_r($bio);?></div>
 				<a href="biochange.php" id="biochange">
 					<?php 
 						if ($bio !=0) {
