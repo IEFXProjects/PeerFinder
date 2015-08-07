@@ -7,9 +7,7 @@ $bioupdate= $_POST[myTextArea];
 
 
 require 'DBconnection.php';
-var_dump($bioupdate);
 $bioupdate= mysqli_real_escape_string($conn, $bioupdate);
-var_dump($bioupdate);
 $bioupdate= serialize($bioupdate);
 if(($mysqli_query($conn,"UPDATE UserInfo SET Bio='$bioupdate' WHERE UserName='$UniqueUser'"))===TRUE) {
 	print_r("Your biography has been successfully updated");

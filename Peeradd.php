@@ -2,25 +2,27 @@
 require 'functions.php';
 sessionpage();
 retrieveUserInfo();
-$newfriend= $_POST['NewFriend'];
+$newfriend= $_POST[NewFriend];
 if (empty($newfriend)) {
 	die("There was an error.  Please try again" . $conn->connect_error);
 }
 require 'DBconnection.php';
 $PeerQuery= mysqli_query($conn, "SELECT Peers FROM UserInfo WHERE UserName= '$UniqueUser'");
 $Peerpull= $PeerQuery->fetch_array(MYSQLI_NUM);
-if ($Peerpull[0]== 0 OR $Peerpull[0]===NULL) {
+mysqli_close($conn);
+if (empty($Peerpull[0])) {
 	$Peercheck= array();
 }
 else {
 	$Peercheck= unserialize($Peerpull[0]);
+	$Peercheck=array_values($Peercheck);
 }
-mysqli_close($conn);
 $numPeers= count($Peercheck);
 if (in_array($newfriend, $Peercheck)) {
 	die("You are already friends with this person");
 }
 array_push($Peercheck, $newfriend);
+$Peercheck= array_values($Peercheck);
 $serialized= serialize($Peercheck);
 require 'DBconnection.php';
 if ((mysqli_query($conn, "UPDATE UserInfo SET Peers='$serialized' WHERE UserName='$UniqueUser'")) ===TRUE){
